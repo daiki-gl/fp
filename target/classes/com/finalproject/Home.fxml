@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.finalproject.HomeController">
    <children>
-      <Label layoutX="121.0" layoutY="167.0" text="HOME!!!!!!!!!!!">
+      <Button fx:id="teacherBtn" layoutX="135.0" layoutY="107.0" mnemonicParsing="false" onAction="#switchToTeacherList" text="Teacher List">
          <font>
-            <Font name="Chalkduster" size="48.0" />
+            <Font name="Microsoft Sans Serif" size="18.0" />
          </font>
-      </Label>
+      </Button>
+      <Button fx:id="subjectBtn" layoutX="348.0" layoutY="107.0" mnemonicParsing="false" onAction="#switchToSubjectList" text="Subject List">
+         <font>
+            <Font name="Microsoft Sans Serif" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="adminBtn" layoutX="278.0" layoutY="215.0" mnemonicParsing="false" onAction="#switchToAdminPage" text="Admin">
+         <font>
+            <Font name="Microsoft Sans Serif" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
