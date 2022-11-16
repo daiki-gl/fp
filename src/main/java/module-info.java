@@ -5,6 +5,7 @@ module com.finalproject {
 
     opens com.finalproject to javafx.fxml;
 
-    // opens com.finalproject.home to javafx.base;
+    opens com.finalproject.TeacherList to javafx.base;
+
     exports com.finalproject;
 }
