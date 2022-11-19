@@ -157,7 +157,7 @@ public class TeacherModel {
 
     public ArrayList<String> getTeacherNames() {
         String query = "SELECT * FROM teachers_tbl";
-        this.teacherData = FXCollections.observableArrayList();
+        // this.teacherData = FXCollections.observableArrayList();
 
         ResultSet resultSet;
 
@@ -422,5 +422,41 @@ public class TeacherModel {
                 e.printStackTrace();
             }
         }
+    }
+
+    public ArrayList<String> getLogindata(String id) {
+        ArrayList<String> loginData = new ArrayList<>();
+        String query = "SELECT * FROM teachers_tbl WHERE teacher_id = ?;";
+        // this.teacherData = FXCollections.observableArrayList();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            System.out.println("IDsql:" + id);
+            statement = conn.prepareStatement(query);
+            statement.setInt(1, Integer.parseInt(id));
+            resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                this.teacherData.add(new TeacherData(
+                        resultSet.getString(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7)));
+            }
+            loginData.add(this.teacherData.get(Integer.parseInt(id) - 1).getName());
+            loginData.add(this.teacherData.get(Integer.parseInt(id) - 1).getHireDate());
+            loginData.add(this.teacherData.get(Integer.parseInt(id) - 1).getSubject1());
+            loginData.add(this.teacherData.get(Integer.parseInt(id) - 1).getSubject2());
+            loginData.add(this.teacherData.get(Integer.parseInt(id) - 1).getSubject3());
+            return loginData;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

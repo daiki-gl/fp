@@ -1,5 +1,6 @@
 package com.finalproject;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -16,14 +17,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableColumn;
@@ -33,6 +37,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 public class TeacherListController implements Initializable {
 
@@ -71,6 +76,8 @@ public class TeacherListController implements Initializable {
     private Button serachBySocBtn;
     @FXML
     private Button showEveryTeacherBtn;
+    @FXML
+    private Hyperlink logout;
 
     // Columns for list(List Page)
     @FXML
@@ -159,6 +166,10 @@ public class TeacherListController implements Initializable {
     private String editSubject3String;
     ObservableList<String> setSubjectList;
 
+    LoginController lController = new LoginController();
+    String loginUserId;
+    ObservableList<TeacherData> loginUserData;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.teacherModel = new TeacherModel();
@@ -166,6 +177,7 @@ public class TeacherListController implements Initializable {
         this.loadTeacherData();
         this.loadTeacherDataSearch(teacherModel.getTeachers());
 
+        loginUserId = lController.getLoinUserId();
         // Initialize Combo box data(List Page)
         // setSubjectList =
         // FXCollections.observableArrayList(allSubjectsModel.getSubjectsName());
@@ -177,23 +189,24 @@ public class TeacherListController implements Initializable {
         // updateTeacherBtn.setDisable(true);
         // deleteTeacherBtn.setDisable(true);
 
-        // teacherDataTableView.setOnMouseClicked(e -> {
-        // TeacherData selected =
-        // teacherDataTableView.getSelectionModel().getSelectedItem();
+        teacherDataTableView.setOnMouseClicked(e -> {
+            TeacherData selected = teacherDataTableView.getSelectionModel().getSelectedItem();
 
-        // if (selected != null) {
-        // updateTeacherBtn.setDisable(false);
-        // deleteTeacherBtn.setDisable(false);
+            if (selected != null) {
+                updateTeacherBtn.setDisable(false);
+                // deleteTeacherBtn.setDisable(false);
 
-        // editIdString = selected.idProperty().getValue();
-        // editNameString = selected.nameProperty().getValue();
-        // editPasswordString = selected.passwordProperty().getValue();
-        // editSubject1String = selected.subject1Property().getValue();
-        // editSubject2String = selected.subject2Property().getValue();
-        // editSubject3String = selected.subject3Property().getValue();
-        // }
-        // });
+                editIdString = selected.idProperty().getValue();
+                editNameString = selected.nameProperty().getValue();
+                editPasswordString = selected.passwordProperty().getValue();
+                editSubject1String = selected.subject1Property().getValue();
+                editSubject2String = selected.subject2Property().getValue();
+                editSubject3String = selected.subject3Property().getValue();
+            }
+        });
+
         getEachSubjectTablesId();
+
     }
 
     // load data and show everything(Both Page)
@@ -310,51 +323,53 @@ public class TeacherListController implements Initializable {
         teacherModel.executeEachTable(teacher_id, query);
     }
 
-    // add employee(List Page)
-    @FXML
-    private void addTeacher(ActionEvent event) {
-        if (!this.name.getText().equals("") && !this.password.getText().equals("")
-                && this.hireDate.getValue() != null) {
-            String addSubject1 = this.subject1Box.getValue();
-            String addSubject2 = this.subject2Box.getValue();
-            String addSubject3 = this.subject3Box.getValue();
+    // add teacher(List Page)
+    // @FXML
+    // private void addTeacher(ActionEvent event) {
+    // if (!this.name.getText().equals("") && !this.password.getText().equals("")
+    // && this.hireDate.getValue() != null) {
+    // String addSubject1 = this.subject1Box.getValue();
+    // String addSubject2 = this.subject2Box.getValue();
+    // String addSubject3 = this.subject3Box.getValue();
 
-            // Check subject duplication
-            if (checkDuplication(addSubject1, addSubject2, addSubject3)) {
-                if (addSubject1 == "Subject 1" || addSubject1 == null)
-                    addSubject1 = "";
+    // // Check subject duplication
+    // if (checkDuplication(addSubject1, addSubject2, addSubject3)) {
+    // if (addSubject1 == "Subject 1" || addSubject1 == null)
+    // addSubject1 = "";
 
-                if (addSubject2 == "Subject 2" || addSubject2 == null)
-                    addSubject2 = "";
+    // if (addSubject2 == "Subject 2" || addSubject2 == null)
+    // addSubject2 = "";
 
-                if (addSubject3 == "Subject 3" || addSubject3 == null)
-                    addSubject3 = "";
+    // if (addSubject3 == "Subject 3" || addSubject3 == null)
+    // addSubject3 = "";
 
-                // Execute AddTeacher method from TeacherModel
-                teacherModel.addTeacher(this.name.getText(), this.hireDate, this.password.getText(),
-                        addSubject1, addSubject2, addSubject3);
-                this.loadTeacherData();
-                this.loadTeacherDataSearch(teacherModel.getTeachers());
+    // // Execute AddTeacher method from TeacherModel
+    // teacherModel.addTeacher(this.name.getText(), this.hireDate,
+    // this.password.getText(),
+    // addSubject1, addSubject2, addSubject3);
+    // this.loadTeacherData();
+    // this.loadTeacherDataSearch(teacherModel.getTeachers());
 
-                // Add teacher_id(teachers_tbl) to each subject table
-                String[] subjects = { addSubject1, addSubject2, addSubject3 };
-                for (String subject : subjects) {
-                    if (teacherModel.checkSubject(subject) != 0) {
-                        addEachSubjectTable(teacherModel.checkSubject(subject), teacherModel.getTeacherIdAfterAdded());
-                    }
-                }
-                this.clearFields(null);
+    // // Add teacher_id(teachers_tbl) to each subject table
+    // String[] subjects = { addSubject1, addSubject2, addSubject3 };
+    // for (String subject : subjects) {
+    // if (teacherModel.checkSubject(subject) != 0) {
+    // addEachSubjectTable(teacherModel.checkSubject(subject),
+    // teacherModel.getTeacherIdAfterAdded());
+    // }
+    // }
+    // this.clearFields(null);
 
-            } else {
-                alertModal();
-                dialog.showAndWait().ifPresent(res -> {
-                });
-            }
+    // } else {
+    // alertModal();
+    // dialog.showAndWait().ifPresent(res -> {
+    // });
+    // }
 
-        } else {
-            errorMsg.setText("*Input name, password and hired date");
-        }
-    }
+    // } else {
+    // errorMsg.setText("*Input name, password and hired date");
+    // }
+    // }
 
     // Update with Modal(List Page)
     // create modal
@@ -364,7 +379,7 @@ public class TeacherListController implements Initializable {
 
         dialog.getDialogPane().getStylesheets().add("file:src/main/resources/com/finalproject/application.css");
 
-        dialog.setTitle("Edit Teacher Data");
+        dialog.setTitle("Edit Teacher Data<User ID:" + loginUserId + ">");
         ButtonType editModalButton = new ButtonType("Edit", ButtonData.OK_DONE);
         ButtonType cancellModalButton = new ButtonType("Close", ButtonData.CANCEL_CLOSE);
 
@@ -470,85 +485,86 @@ public class TeacherListController implements Initializable {
     // Edit teacher data(List Page)
     @FXML
     private void editTeacher(ActionEvent event) {
-        int index = teacherDataTableView.getSelectionModel().getSelectedIndex();
-        if (index != -1) {
-            TeacherData selectedItem = teacherDataTableView.getSelectionModel().getSelectedItem();
-            String editId = selectedItem.idProperty().getValue();
+        // int index = teacherDataTableView.getSelectionModel().getSelectedIndex();
+        // TeacherData selectedItem =
+        // teacherDataTableView.getSelectionModel().getSelectedItem();
+        // String editId = selectedItem.idProperty().getValue();
 
-            // call the modal
-            createModal();
+        System.out.println("Login User ID" + loginUserId);
+        System.out.println(teacherModel.getLogindata(loginUserId));
+        // call the modal
+        createModal();
 
-            // call model
-            dialog.showAndWait().ifPresent(response -> {
-                if (response.getButtonData().equals(ButtonData.OK_DONE)) {
+        // call model
+        dialog.showAndWait().ifPresent(response -> {
+            if (response.getButtonData().equals(ButtonData.OK_DONE)) {
 
-                    String addSubject1 = editSubject1.getValue();
-                    String addSubject2 = editSubject2.getValue();
-                    String addSubject3 = editSubject3.getValue();
+                String addSubject1 = editSubject1.getValue();
+                String addSubject2 = editSubject2.getValue();
+                String addSubject3 = editSubject3.getValue();
 
-                    // check duplicate
-                    if (checkDuplication(addSubject1, addSubject2, addSubject3)) {
+                // check duplicate
+                if (checkDuplication(addSubject1, addSubject2, addSubject3)) {
 
-                        // Delete Subject data First
-                        ArrayList<String> deleteSubjects = teacherModel.getSubjectData(editId);
-                        for (String deleteSubject : deleteSubjects) {
-                            if (teacherModel.checkSubject(deleteSubject) != 0) {
-                                deleteEachSubjectTable(teacherModel.checkSubject(deleteSubject),
-                                        Integer.parseInt(editId));
-                            }
+                    // Delete Subject data First
+                    ArrayList<String> deleteSubjects = teacherModel.getSubjectData(loginUserId);
+                    for (String deleteSubject : deleteSubjects) {
+                        if (teacherModel.checkSubject(deleteSubject) != 0) {
+                            deleteEachSubjectTable(teacherModel.checkSubject(deleteSubject),
+                                    Integer.parseInt(loginUserId));
                         }
-
-                        // Edit Teacher_tbl data
-                        teacherModel.editTeacher(teacherDataTableView.getSelectionModel().getSelectedIndex(),
-                                editIdString, editName.getText(), Date.valueOf(checkDate()),
-                                editPassword.getText(), addSubject1, addSubject2, addSubject3);
-
-                        // Add New Subject Data
-                        ArrayList<String> addSubjects = teacherModel.getSubjectData(editId);
-                        for (String addSubject : addSubjects) {
-                            if (teacherModel.checkSubject(addSubject) != 0) {
-                                addEachSubjectTable(teacherModel.checkSubject(addSubject), Integer.parseInt(editId));
-                            }
-                        }
-
-                    } else {
-                        alertModal();
-                        dialog.showAndWait().ifPresent(res -> {
-                            this.clearFields(null);
-                        });
                     }
 
-                    this.loadTeacherData();
-                    this.clearFields(null);
+                    // Edit Teacher_tbl data
+                    teacherModel.editTeacher(teacherDataTableView.getSelectionModel().getSelectedIndex(),
+                            editIdString, editName.getText(), Date.valueOf(checkDate()),
+                            editPassword.getText(), addSubject1, addSubject2, addSubject3);
+
+                    // Add New Subject Data
+                    ArrayList<String> addSubjects = teacherModel.getSubjectData(loginUserId);
+                    for (String addSubject : addSubjects) {
+                        if (teacherModel.checkSubject(addSubject) != 0) {
+                            addEachSubjectTable(teacherModel.checkSubject(addSubject), Integer.parseInt(loginUserId));
+                        }
+                    }
+
+                } else {
+                    alertModal();
+                    dialog.showAndWait().ifPresent(res -> {
+                        this.clearFields(null);
+                    });
                 }
-            });
-        } else {
-            errorMsg.setText("*Select employee data which you want to edit");
-        }
+
+                this.loadTeacherData();
+                this.clearFields(null);
+            }
+        });
 
     }
 
     // delete Teacher(List Page)
-    @FXML
-    private void deleteTeacher(ActionEvent event) {
-        TeacherData selectedItem = teacherDataTableView.getSelectionModel().getSelectedItem();
-        if (teacherDataTableView.getSelectionModel().getSelectedIndex() != -1) {
-            String deleteId = selectedItem.idProperty().getValue();
+    // @FXML
+    // private void deleteTeacher(ActionEvent event) {
+    // TeacherData selectedItem =
+    // teacherDataTableView.getSelectionModel().getSelectedItem();
+    // if (teacherDataTableView.getSelectionModel().getSelectedIndex() != -1) {
+    // String deleteId = selectedItem.idProperty().getValue();
 
-            // Delete every subjects(Subject1 ~ 3) data from each subject table
-            ArrayList<String> subjects = teacherModel.getSubjectData(deleteId);
-            for (String subject : subjects) {
-                if (teacherModel.checkSubject(subject) != 0) {
-                    deleteEachSubjectTable(teacherModel.checkSubject(subject), Integer.parseInt(deleteId));
-                }
-            }
-            teacherModel.deleteTeacher(deleteId);
-            this.loadTeacherData();
-            this.clearFields(null);
-        } else {
-            errorMsg.setText("*Select employee data which you want to delete");
-        }
-    }
+    // // Delete every subjects(Subject1 ~ 3) data from each subject table
+    // ArrayList<String> subjects = teacherModel.getSubjectData(deleteId);
+    // for (String subject : subjects) {
+    // if (teacherModel.checkSubject(subject) != 0) {
+    // deleteEachSubjectTable(teacherModel.checkSubject(subject),
+    // Integer.parseInt(deleteId));
+    // }
+    // }
+    // teacherModel.deleteTeacher(deleteId);
+    // this.loadTeacherData();
+    // this.clearFields(null);
+    // } else {
+    // errorMsg.setText("*Select employee data which you want to delete");
+    // }
+    // }
 
     // Execute sql statement and add teacher_id into specific subject_tbl(List Page)
     // If I use solid number, "if statement" can change to "switch"
@@ -581,5 +597,25 @@ public class TeacherListController implements Initializable {
         this.searchName.setText("");
         this.searchHireDate.setValue(null);
         errorMsg.setText(null);
+    }
+
+    @FXML
+    public void Logout(ActionEvent event) {
+        Stage stage = (Stage) this.logout.getScene().getWindow();
+        stage.close();
+        loginPage();
+    }
+
+    public void loginPage() {
+        Stage loginStage = new Stage();
+        try {
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Login.fxml")));
+
+            loginStage.setScene(scene);
+            loginStage.setTitle("Login Page");
+            loginStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -49,4 +49,36 @@ public class LoginModel {
             }
         }
     }
+
+    public String getLoginId(String username, String password) {
+        String teacher_id = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        String query = "SELECT teacher_id FROM teachers_tbl WHERE name = ? AND password = ?";
+
+        try {
+
+            statement = conn.prepareStatement(query);
+            statement.setString(1, username);
+            statement.setString(2, password);
+
+            resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                teacher_id = resultSet.getString(1);
+            }
+            return teacher_id;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return teacher_id;
+        } finally {
+            try {
+                statement.close();
+                resultSet.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

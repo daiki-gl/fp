@@ -25,7 +25,7 @@ public class SignupModel {
     public void isSignup(String username, String password) {
         PreparedStatement statement = null;
 
-        String query = "INSERT INTO login_tbl (login_name, password) VALUES (?,?);";
+        String query = "INSERT INTO teachers_tbl (name, password) VALUES (?,?);";
 
         try {
             statement = this.conn.prepareStatement(query);

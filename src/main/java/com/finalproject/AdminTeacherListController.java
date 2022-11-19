@@ -1,5 +1,6 @@
 package com.finalproject;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
@@ -16,14 +17,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TableColumn;
@@ -33,6 +37,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 public class AdminTeacherListController implements Initializable {
 
@@ -89,6 +94,8 @@ public class AdminTeacherListController implements Initializable {
     private TableColumn<TeacherData, String> subject3Column;
     @FXML
     private Label searchMsg;
+    @FXML
+    private Hyperlink logout;
 
     // Columns for research
     @FXML
@@ -579,5 +586,25 @@ public class AdminTeacherListController implements Initializable {
         this.searchName.setText("");
         this.searchHireDate.setValue(null);
         errorMsg.setText(null);
+    }
+
+    @FXML
+    public void Logout(ActionEvent event) {
+        Stage stage = (Stage) this.logout.getScene().getWindow();
+        stage.close();
+        loginPage();
+    }
+
+    public void loginPage() {
+        Stage loginStage = new Stage();
+        try {
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Login.fxml")));
+
+            loginStage.setScene(scene);
+            loginStage.setTitle("Login Page");
+            loginStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

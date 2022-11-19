@@ -33,6 +33,7 @@ public class LoginController implements Initializable {
     private Hyperlink signup;
     @FXML
     private Hyperlink admin;
+    static String id;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -50,6 +51,7 @@ public class LoginController implements Initializable {
     public void Login(ActionEvent event) {
 
         if (this.loginModel.isLogin(this.username.getText(), this.password.getText())) {
+            id = loginModel.getLoginId(this.username.getText(), this.password.getText());
             Stage stage = (Stage) this.loginBtn.getScene().getWindow();
             stage.close();
 
@@ -57,6 +59,10 @@ public class LoginController implements Initializable {
         } else {
             this.loginStatus.setText("Wrong Credentials");
         }
+    }
+
+    public String getLoinUserId() {
+        return id;
     }
 
     // Register a new user
