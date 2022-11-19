@@ -34,7 +34,7 @@ import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 
-public class TeacherListController implements Initializable {
+public class AdminTeacherListController implements Initializable {
 
     // For editing modal(List Page)
     TextField editName = new TextField();
@@ -167,32 +167,30 @@ public class TeacherListController implements Initializable {
         this.loadTeacherDataSearch(teacherModel.getTeachers());
 
         // Initialize Combo box data(List Page)
-        // setSubjectList =
-        // FXCollections.observableArrayList(allSubjectsModel.getSubjectsName());
-        // subject1Box.setItems(setSubjectList);
-        // subject2Box.setItems(setSubjectList);
-        // subject3Box.setItems(setSubjectList);
+        setSubjectList = FXCollections.observableArrayList(allSubjectsModel.getSubjectsName());
+        subject1Box.setItems(setSubjectList);
+        subject2Box.setItems(setSubjectList);
+        subject3Box.setItems(setSubjectList);
 
         // disable delete and edit buttons(List Page)
-        // updateTeacherBtn.setDisable(true);
-        // deleteTeacherBtn.setDisable(true);
+        updateTeacherBtn.setDisable(true);
+        deleteTeacherBtn.setDisable(true);
 
-        // teacherDataTableView.setOnMouseClicked(e -> {
-        // TeacherData selected =
-        // teacherDataTableView.getSelectionModel().getSelectedItem();
+        teacherDataTableView.setOnMouseClicked(e -> {
+            TeacherData selected = teacherDataTableView.getSelectionModel().getSelectedItem();
 
-        // if (selected != null) {
-        // updateTeacherBtn.setDisable(false);
-        // deleteTeacherBtn.setDisable(false);
+            if (selected != null) {
+                updateTeacherBtn.setDisable(false);
+                deleteTeacherBtn.setDisable(false);
 
-        // editIdString = selected.idProperty().getValue();
-        // editNameString = selected.nameProperty().getValue();
-        // editPasswordString = selected.passwordProperty().getValue();
-        // editSubject1String = selected.subject1Property().getValue();
-        // editSubject2String = selected.subject2Property().getValue();
-        // editSubject3String = selected.subject3Property().getValue();
-        // }
-        // });
+                editIdString = selected.idProperty().getValue();
+                editNameString = selected.nameProperty().getValue();
+                editPasswordString = selected.passwordProperty().getValue();
+                editSubject1String = selected.subject1Property().getValue();
+                editSubject2String = selected.subject2Property().getValue();
+                editSubject3String = selected.subject3Property().getValue();
+            }
+        });
         getEachSubjectTablesId();
     }
 
@@ -572,12 +570,12 @@ public class TeacherListController implements Initializable {
     // clear fields
     @FXML
     private void clearFields(ActionEvent event) {
-        // this.name.setText("");
-        // this.password.setText("");
-        // this.hireDate.setValue(null);
-        // this.subject1Box.setValue(null);
-        // this.subject2Box.setValue(null);
-        // this.subject3Box.setValue(null);
+        this.name.setText("");
+        this.password.setText("");
+        this.hireDate.setValue(null);
+        this.subject1Box.setValue(null);
+        this.subject2Box.setValue(null);
+        this.subject3Box.setValue(null);
         this.searchName.setText("");
         this.searchHireDate.setValue(null);
         errorMsg.setText(null);

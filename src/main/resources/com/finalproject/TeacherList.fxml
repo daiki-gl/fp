@@ -2,10 +2,8 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -48,91 +46,6 @@
                                     <Insets bottom="5.0" top="5.0" />
                                  </VBox.margin>
                               </Label>
-                              <TextField fx:id="name" promptText="Teacher Name">
-                                 <font>
-                                    <Font name="Arial" size="18.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                              </TextField>
-                              <DatePicker fx:id="hireDate" prefHeight="25.0" prefWidth="345.0" promptText="Hired Date">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                              </DatePicker>
-                              <PasswordField fx:id="password" promptText="Password">
-                                 <font>
-                                    <Font name="Arial" size="18.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                              </PasswordField>
-                              <Label text="Subject 1:">
-                                 <font>
-                                    <Font name="Arial" size="18.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" left="3.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <ComboBox fx:id="subject1Box" prefHeight="25.0" prefWidth="346.0" promptText="Subject 1">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="5.0" top="5.0" />
-                                 </padding>
-                              </ComboBox>
-                              <Label text="Subject 2:">
-                                 <font>
-                                    <Font name="Arial" size="18.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="3.0" left="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <ComboBox fx:id="subject2Box" prefHeight="25.0" prefWidth="346.0" promptText="Subject 2">
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="5.0" top="5.0" />
-                                 </padding>
-                              </ComboBox>
-                              <Label text="Subject 3:">
-                                 <font>
-                                    <Font name="Arial" size="18.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="3.0" left="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <ComboBox fx:id="subject3Box" prefHeight="25.0" prefWidth="346.0" promptText="Subject 3">
-                                 <VBox.margin>
-                                    <Insets bottom="30.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="5.0" top="5.0" />
-                                 </padding>
-                              </ComboBox>
-                              <Button fx:id="addTeacherBtn" mnemonicParsing="false" onAction="#addTeacher" prefHeight="40.0" prefWidth="400.0" text="Add Teacher">
-                                 <font>
-                                    <Font name="Arial" size="18.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                              </Button>
-                              <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#clearFields" prefHeight="40.0" prefWidth="400.0" text="Clear Form">
-                                 <font>
-                                    <Font name="Arial" size="18.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                              </Button>
                               <Button fx:id="updateTeacherBtn" mnemonicParsing="false" onAction="#editTeacher" prefHeight="40.0" prefWidth="400.0" text="Update Teacher">
                                  <font>
                                     <Font name="Arial" size="18.0" />
@@ -140,11 +53,6 @@
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
-                              </Button>
-                              <Button fx:id="deleteTeacherBtn" mnemonicParsing="false" onAction="#deleteTeacher" prefHeight="40.0" prefWidth="400.0" text="Delete Teacher">
-                                 <font>
-                                    <Font name="Arial" size="18.0" />
-                                 </font>
                               </Button>
                               <Label fx:id="errorMsg" textFill="#cd2c2c">
                                  <font>
@@ -254,7 +162,7 @@
                                     <Insets />
                                  </VBox.margin>
                               </Button>
-                              <Label fx:id="searchMsg" text="Search By Name :">
+                              <Label fx:id="searchMsg">
                                  <VBox.margin>
                                     <Insets left="3.0" top="20.0" />
                                  </VBox.margin>

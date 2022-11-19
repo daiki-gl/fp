@@ -7,11 +7,11 @@ import java.sql.SQLException;
 
 import com.finalproject.dbUnit.dbConnection;
 
-public class LoginModel {
+public class AdminLoginModel {
 
     Connection conn = null;
 
-    public LoginModel() {
+    public AdminLoginModel() {
         this.conn = dbConnection.getConnection();
         if (this.conn == null) {
             System.exit(1);
@@ -26,7 +26,7 @@ public class LoginModel {
         PreparedStatement statement = null;
         ResultSet resultSet = null;
 
-        String query = "SELECT * FROM teachers_tbl WHERE name = ? AND password = ?";
+        String query = "SELECT * FROM login_tbl WHERE login_name = ? AND password = ?";
 
         try {
             statement = this.conn.prepareStatement(query);

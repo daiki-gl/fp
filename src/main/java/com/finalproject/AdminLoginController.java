@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.finalproject.Login.LoginModel;
+import com.finalproject.Login.AdminLoginModel;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,8 +18,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class LoginController implements Initializable {
-    LoginModel loginModel = new LoginModel();
+public class AdminLoginController implements Initializable {
+    AdminLoginModel adminLoginModel = new AdminLoginModel();
 
     @FXML
     private TextField username;
@@ -30,14 +30,12 @@ public class LoginController implements Initializable {
     @FXML
     private Label loginStatus;
     @FXML
-    private Hyperlink signup;
-    @FXML
-    private Hyperlink admin;
+    private Hyperlink login;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        if (loginModel.isDatabaseConnected()) {
+        if (adminLoginModel.isDatabaseConnected()) {
             // inject a text to dbStatus that db is connected
             System.out.println("Connected to Database");
         } else {
@@ -49,26 +47,22 @@ public class LoginController implements Initializable {
     @FXML
     public void Login(ActionEvent event) {
 
-        if (this.loginModel.isLogin(this.username.getText(), this.password.getText())) {
+        if (this.adminLoginModel.isLogin(this.username.getText(), this.password.getText())) {
             Stage stage = (Stage) this.loginBtn.getScene().getWindow();
             stage.close();
-
             homePage();
         } else {
             this.loginStatus.setText("Wrong Credentials");
         }
     }
 
-    // Register a new user
-
     public void homePage() {
-
         Stage homeStage = new Stage();
         try {
-            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("TeacherList.fxml")));
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("AdminTeacherList.fxml")));
 
             homeStage.setScene(scene);
-            homeStage.setTitle("Teacher List");
+            homeStage.setTitle("Admin: Teacher List Page");
             homeStage.setResizable(false);
             homeStage.show();
 
@@ -78,40 +72,20 @@ public class LoginController implements Initializable {
     }
 
     @FXML
-    public void Signup(ActionEvent event) {
-        Stage stage = (Stage) this.signup.getScene().getWindow();
+    public void BackToLogin(ActionEvent event) {
+        Stage stage = (Stage) this.login.getScene().getWindow();
         stage.close();
-        signUpPage();
+        loginPage();
     }
 
-    public void signUpPage() {
-        Stage signUpStage = new Stage();
+    public void loginPage() {
+        Stage loginStage = new Stage();
         try {
-            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Signup.fxml")));
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Login.fxml")));
 
-            signUpStage.setScene(scene);
-            signUpStage.setTitle("Sign Up Page");
-            signUpStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    public void Admin(ActionEvent event) {
-        Stage stage = (Stage) this.admin.getScene().getWindow();
-        stage.close();
-        adminPage();
-    }
-
-    public void adminPage() {
-        Stage adminPageStage = new Stage();
-        try {
-            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("AdminLogin.fxml")));
-
-            adminPageStage.setScene(scene);
-            adminPageStage.setTitle("Admin Login Page");
-            adminPageStage.show();
+            loginStage.setScene(scene);
+            loginStage.setTitle("Login Page");
+            loginStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

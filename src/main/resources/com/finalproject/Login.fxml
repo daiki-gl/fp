@@ -54,7 +54,7 @@
             <Font name="Chalkduster" size="14.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="admin" layoutX="507.0" layoutY="305.0" onAction="#Signup" text="admin" textFill="#e47c7c" underline="true">
+      <Hyperlink fx:id="admin" layoutX="507.0" layoutY="305.0" onAction="#Admin" text="admin" textFill="#e47c7c" underline="true">
          <font>
             <Font name="Chalkduster" size="14.0" />
          </font>
