@@ -11,15 +11,5 @@
             <Font name="Microsoft Sans Serif" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="subjectBtn" layoutX="348.0" layoutY="107.0" mnemonicParsing="false" onAction="#switchToSubjectList" text="Subject List">
-         <font>
-            <Font name="Microsoft Sans Serif" size="18.0" />
-         </font>
-      </Button>
-      <Button fx:id="adminBtn" layoutX="278.0" layoutY="215.0" mnemonicParsing="false" onAction="#switchToAdminPage" text="Admin">
-         <font>
-            <Font name="Microsoft Sans Serif" size="18.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

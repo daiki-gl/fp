@@ -2,8 +2,10 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -14,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" style="-fx-font-family:arial" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.finalproject.TeacherListController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" style="-fx-font-family:arial" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.finalproject.TeacherListController">
    <children>
       <TabPane prefHeight="807.0" prefWidth="1302.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -28,7 +30,10 @@
                                 <columns>
                                   <TableColumn fx:id="idColumn" minWidth="100.0" prefWidth="75.0" text="ID" />
                                   <TableColumn fx:id="nameColumn" minWidth="200.0" prefWidth="75.0" text="NAME" />
-                                    <TableColumn fx:id="hireDateColumn" minWidth="300.0" prefWidth="75.0" text="Hired Date (Password)" />
+                                    <TableColumn fx:id="hireDateColumn" minWidth="300.0" prefWidth="75.0" text="Hired Date" />
+                                    <TableColumn fx:id="subject1Column" minWidth="112.96441650390625" prefWidth="112.96441650390625" text="Subject 1" />
+                                    <TableColumn fx:id="subject2Column" minWidth="112.96441650390625" prefWidth="112.96441650390625" text="Subject 2" />
+                                    <TableColumn fx:id="subject3Column" minWidth="112.96441650390625" prefWidth="112.96441650390625" text="Subject 3" />
                                 </columns>
                               </TableView>
                            </children>
@@ -56,14 +61,62 @@
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </DatePicker>
-                              <TextField fx:id="password" prefHeight="33.0" prefWidth="84.0" promptText="Password">
+                              <PasswordField fx:id="password" promptText="Password">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
                                  <VBox.margin>
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
-                              </TextField>
+                              </PasswordField>
+                              <Label text="Subject 1:">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" left="3.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ComboBox fx:id="subject1Box" prefHeight="25.0" prefWidth="346.0" promptText="Subject 1">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </padding>
+                              </ComboBox>
+                              <Label text="Subject 2:">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ComboBox fx:id="subject2Box" prefHeight="25.0" prefWidth="346.0" promptText="Subject 2">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </padding>
+                              </ComboBox>
+                              <Label text="Subject 3:">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="3.0" left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ComboBox fx:id="subject3Box" prefHeight="25.0" prefWidth="346.0" promptText="Subject 3">
+                                 <VBox.margin>
+                                    <Insets bottom="30.0" />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </padding>
+                              </ComboBox>
                               <Button fx:id="addTeacherBtn" mnemonicParsing="false" onAction="#addTeacher" prefHeight="40.0" prefWidth="400.0" text="Add Teacher">
                                  <font>
                                     <Font name="Arial" size="18.0" />
@@ -80,7 +133,7 @@
                                     <Insets bottom="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="updateTeacherBtn" mnemonicParsing="false" prefHeight="40.0" prefWidth="400.0" text="Update Teacher">
+                              <Button fx:id="updateTeacherBtn" mnemonicParsing="false" onAction="#editTeacher" prefHeight="40.0" prefWidth="400.0" text="Update Teacher">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -107,6 +160,125 @@
                   </AnchorPane>
             </content>
           </Tab>
+            <Tab text="Search Teacher">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox layoutX="334.0" prefHeight="768.0" prefWidth="965.0">
+                           <children>
+                              <TableView fx:id="teacherDataTableSearch" prefHeight="768.0" prefWidth="974.0">
+                                 <columns>
+                                    <TableColumn fx:id="idColumnSearch" minWidth="100.0" prefWidth="75.0" text="ID" />
+                                    <TableColumn fx:id="nameColumnSearch" minWidth="200.0" prefWidth="75.0" text="NAME" />
+                                    <TableColumn fx:id="hireDateColumnSearch" minWidth="300.0" prefWidth="75.0" text="Hired Date" />
+                                    <TableColumn fx:id="subject1ColumnSearch" minWidth="112.96441650390625" prefWidth="112.96441650390625" text="Subject 1" />
+                                    <TableColumn fx:id="subject2ColumnSearch" minWidth="112.96441650390625" prefWidth="112.96441650390625" text="Subject 2" />
+                                    <TableColumn fx:id="subject3ColumnSearch" minWidth="112.96441650390625" prefWidth="112.96441650390625" text="Subject 3" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="770.0" prefWidth="333.0">
+                           <children>
+                              <Label alignment="TOP_CENTER" prefHeight="27.0" prefWidth="338.0" text="Search Teacher">
+                                 <font>
+                                    <Font name="Arial" size="24.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="searchName" promptText="Teacher Name">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Button fx:id="serachByNameBtn" mnemonicParsing="false" onAction="#searchByName" prefHeight="40.0" prefWidth="400.0" text="Search by Name">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Label fx:id="errorMsg1" textFill="#cd2c2c">
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="searchHireDate" prefHeight="25.0" prefWidth="345.0" promptText="Hired Date">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </DatePicker>
+                              <Button fx:id="serachByDateBtn" mnemonicParsing="false" onAction="#searchByDate" prefHeight="40.0" prefWidth="400.0" text="Search by Date">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="serachByEngBtn" mnemonicParsing="false" onAction="#searchByEng" prefHeight="40.0" prefWidth="400.0" text="Search by English">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="serachByMathBtn" mnemonicParsing="false" onAction="#searchByMath" prefHeight="40.0" prefWidth="400.0" text="Search by Mathematics">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="serachBySciBtn" mnemonicParsing="false" onAction="#searchBySci" prefHeight="40.0" prefWidth="400.0" text="Search by Science">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="serachBySocBtn" mnemonicParsing="false" onAction="#searchBySoci" prefHeight="40.0" prefWidth="400.0" text="Search by Social Studies">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Button>
+                              <Label fx:id="searchMsg" text="Search By Name :">
+                                 <VBox.margin>
+                                    <Insets left="3.0" top="20.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Arial" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="showEveryTeacherBtn" mnemonicParsing="false" onAction="#showEveryData" prefHeight="60.0" prefWidth="400.0" text="Show All Teacher">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="230.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets left="3.0" right="3.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>

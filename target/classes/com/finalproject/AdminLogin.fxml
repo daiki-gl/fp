@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.finalproject.LoginController">
    <children>
-      <Label layoutX="54.0" layoutY="67.0" text="Login">
+      <Label layoutX="54.0" layoutY="67.0" text="Admin Login">
          <font>
             <Font name="Chalkduster" size="24.0" />
          </font>
@@ -44,7 +44,7 @@
             <Glow />
          </effect>
       </Button>
-      <Hyperlink fx:id="signup" layoutX="425.0" layoutY="305.0" onAction="#Signup" text="Sign up" textFill="#e47c7c" underline="true">
+      <Hyperlink fx:id="signup" layoutX="457.0" layoutY="305.0" onAction="#Signup" text="Sign up" textFill="#e47c7c" underline="true">
          <font>
             <Font name="Chalkduster" size="14.0" />
          </font>
@@ -54,10 +54,5 @@
             <Font name="Chalkduster" size="14.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="admin" layoutX="507.0" layoutY="305.0" onAction="#Signup" text="admin" textFill="#e47c7c" underline="true">
-         <font>
-            <Font name="Chalkduster" size="14.0" />
-         </font>
-      </Hyperlink>
    </children>
 </AnchorPane>

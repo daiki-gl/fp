@@ -1,0 +1,17 @@
+Button {
+    -fx-font-family: arial;
+    -fx-font-size: 18px;
+}
+
+Button:hover {
+    -fx-opacity: .8;
+}
+
+#ParentGridpane {
+    -fx-font-size: 18px;
+}
+
+#warning {
+    -fx-text-fill: rgb(246, 89, 21);
+    -fx-font-size: 14px;
+}

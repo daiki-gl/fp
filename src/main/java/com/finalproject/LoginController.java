@@ -63,7 +63,7 @@ public class LoginController implements Initializable {
 
         Stage homeStage = new Stage();
         try {
-            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Home.fxml")));
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("TeacherList.fxml")));
 
             homeStage.setScene(scene);
             homeStage.setTitle("Home Page");
