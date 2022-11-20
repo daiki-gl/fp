@@ -157,7 +157,7 @@ public class TeacherModel {
 
     public ArrayList<String> getTeacherNames() {
         String query = "SELECT * FROM teachers_tbl";
-        // this.teacherData = FXCollections.observableArrayList();
+        this.teacherData = FXCollections.observableArrayList();
 
         ResultSet resultSet;
 
@@ -373,6 +373,53 @@ public class TeacherModel {
         return subjects;
     }
 
+    public void editLoginTeacher(String id, String name, Date hireDate, String password, String subject1,
+            String subject2, String subject3) {
+        String sql = "UPDATE teachers_tbl SET name = ?, hire_date = ? , password = ?, subject1 = ?, subject2 = ?, subject3 = ? WHERE teacher_id = ?";
+        PreparedStatement statement = null;
+
+        // if (subject1 == null) {
+        // subject1 = teacherData.get(Integer.parseInt(index)).getSubject1();
+        // } else if (subject1.equals("Clear")) {
+        // subject1 = "";
+        // }
+        // if (subject2 == null) {
+        // subject2 = teacherData.get(Integer.parseInt(index)).getSubject2();
+        // } else if (subject2.equals("Clear")) {
+        // subject2 = "";
+        // }
+        // if (subject3 == null) {
+        // subject3 = teacherData.get(Integer.parseInt(index)).getSubject3();
+        // } else if (subject3.equals("Clear")) {
+        // subject3 = "";
+        // }
+
+        // LocalDate setHireDate = hireDate.getValue();
+        try {
+            Connection conn = dbConnection.getConnection();
+            statement = conn.prepareStatement(sql);
+
+            statement.setString(1, name);
+            statement.setDate(2, hireDate);
+            statement.setString(3, password);
+            statement.setString(4, subject1);
+            statement.setString(5, subject2);
+            statement.setString(6, subject3);
+            statement.setInt(7, Integer.parseInt(id));
+
+            statement.execute();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     // =====================
     // UPDATE METHOD
     // Add hireDate column
@@ -427,12 +474,11 @@ public class TeacherModel {
     public ArrayList<String> getLogindata(String id) {
         ArrayList<String> loginData = new ArrayList<>();
         String query = "SELECT * FROM teachers_tbl WHERE teacher_id = ?;";
-        // this.teacherData = FXCollections.observableArrayList();
+        this.teacherData = FXCollections.observableArrayList();
         PreparedStatement statement = null;
         ResultSet resultSet = null;
 
         try {
-            System.out.println("IDsql:" + id);
             statement = conn.prepareStatement(query);
             statement.setInt(1, Integer.parseInt(id));
             resultSet = statement.executeQuery();
@@ -447,11 +493,13 @@ public class TeacherModel {
                         resultSet.getString(6),
                         resultSet.getString(7)));
             }
-            loginData.add(this.teacherData.get(Integer.parseInt(id) - 1).getName());
-            loginData.add(this.teacherData.get(Integer.parseInt(id) - 1).getHireDate());
-            loginData.add(this.teacherData.get(Integer.parseInt(id) - 1).getSubject1());
-            loginData.add(this.teacherData.get(Integer.parseInt(id) - 1).getSubject2());
-            loginData.add(this.teacherData.get(Integer.parseInt(id) - 1).getSubject3());
+            loginData.add(this.teacherData.get(0).getName());
+            loginData.add(this.teacherData.get(0).getPassword());
+            loginData.add(this.teacherData.get(0).getHireDate());
+            loginData.add(this.teacherData.get(0).getSubject1());
+            loginData.add(this.teacherData.get(0).getSubject2());
+            loginData.add(this.teacherData.get(0).getSubject3());
+            System.out.println("Login Data:" + loginData + "========================");
             return loginData;
 
         } catch (SQLException e) {
@@ -459,4 +507,40 @@ public class TeacherModel {
         }
         return null;
     }
+    // public ArrayList<String> getLogindata(String id) {
+    // ArrayList<String> loginData = new ArrayList<>();
+    // String query = "SELECT * FROM teachers_tbl WHERE teacher_id = ?;";
+    // this.teacherData = FXCollections.observableArrayList();
+    // PreparedStatement statement = null;
+    // ResultSet resultSet = null;
+
+    // try {
+    // statement = conn.prepareStatement(query);
+    // statement.setInt(1, Integer.parseInt(id));
+    // resultSet = statement.executeQuery();
+
+    // while (resultSet.next()) {
+    // this.teacherData.add(new TeacherData(
+    // resultSet.getString(1),
+    // resultSet.getString(2),
+    // resultSet.getString(3),
+    // resultSet.getString(4),
+    // resultSet.getString(5),
+    // resultSet.getString(6),
+    // resultSet.getString(7)));
+    // }
+    // loginData.add(this.teacherData.get(0).getName());
+    // loginData.add(this.teacherData.get(0).getPassword());
+    // loginData.add(this.teacherData.get(0).getHireDate());
+    // loginData.add(this.teacherData.get(0).getSubject1());
+    // loginData.add(this.teacherData.get(0).getSubject2());
+    // loginData.add(this.teacherData.get(0).getSubject3());
+    // System.out.println("Login Data:" + loginData);
+    // return loginData;
+
+    // } catch (SQLException e) {
+    // e.printStackTrace();
+    // }
+    // return null;
+    // }
 }

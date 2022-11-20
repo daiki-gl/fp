@@ -47,7 +47,15 @@
                                     <Insets bottom="5.0" top="5.0" />
                                  </VBox.margin>
                               </Label>
-                              <Button fx:id="updateTeacherBtn" mnemonicParsing="false" onAction="#editTeacher" prefHeight="40.0" prefWidth="400.0" text="Update Teacher">
+                              <Label fx:id="loginName" text="User Name:">
+                                 <font>
+                                    <Font name="Arial" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Button fx:id="updateTeacherBtn" mnemonicParsing="false" onAction="#editTeacher" prefHeight="40.0" prefWidth="400.0" text="Edit Own Data">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -65,7 +73,7 @@
                                     <Font name="Arial" size="14.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets left="10.0" top="630.0" />
+                                    <Insets left="10.0" top="600.0" />
                                  </VBox.margin>
                               </Hyperlink>
                            </children>

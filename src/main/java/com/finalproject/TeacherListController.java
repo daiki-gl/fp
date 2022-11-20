@@ -94,8 +94,6 @@ public class TeacherListController implements Initializable {
     private TableColumn<TeacherData, String> subject2Column;
     @FXML
     private TableColumn<TeacherData, String> subject3Column;
-    @FXML
-    private Label searchMsg;
 
     // Columns for research
     @FXML
@@ -112,6 +110,10 @@ public class TeacherListController implements Initializable {
     private TableColumn<TeacherData, String> subject2ColumnSearch;
     @FXML
     private TableColumn<TeacherData, String> subject3ColumnSearch;
+    @FXML
+    private Label searchMsg;
+    @FXML
+    private Label loginName;
 
     // Action Buttons(List Page)
     @FXML
@@ -169,6 +171,8 @@ public class TeacherListController implements Initializable {
     LoginController lController = new LoginController();
     String loginUserId;
     ObservableList<TeacherData> loginUserData;
+    // String[] loginData;
+    ArrayList<String> loginData = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -178,32 +182,12 @@ public class TeacherListController implements Initializable {
         this.loadTeacherDataSearch(teacherModel.getTeachers());
 
         loginUserId = lController.getLoinUserId();
+
+        loadLoginUserData();
+        loginName.setText("User Name: " + editNameString);
+
         // Initialize Combo box data(List Page)
-        // setSubjectList =
-        // FXCollections.observableArrayList(allSubjectsModel.getSubjectsName());
-        // subject1Box.setItems(setSubjectList);
-        // subject2Box.setItems(setSubjectList);
-        // subject3Box.setItems(setSubjectList);
-
-        // disable delete and edit buttons(List Page)
-        // updateTeacherBtn.setDisable(true);
-        // deleteTeacherBtn.setDisable(true);
-
-        teacherDataTableView.setOnMouseClicked(e -> {
-            TeacherData selected = teacherDataTableView.getSelectionModel().getSelectedItem();
-
-            if (selected != null) {
-                updateTeacherBtn.setDisable(false);
-                // deleteTeacherBtn.setDisable(false);
-
-                editIdString = selected.idProperty().getValue();
-                editNameString = selected.nameProperty().getValue();
-                editPasswordString = selected.passwordProperty().getValue();
-                editSubject1String = selected.subject1Property().getValue();
-                editSubject2String = selected.subject2Property().getValue();
-                editSubject3String = selected.subject3Property().getValue();
-            }
-        });
+        setSubjectList = FXCollections.observableArrayList(allSubjectsModel.getSubjectsName());
 
         getEachSubjectTablesId();
 
@@ -312,64 +296,16 @@ public class TeacherListController implements Initializable {
         if (subject_id == englishId) {
             query = "INSERT INTO english_tbl (subject_id, teacher_id) VALUES (2, ?)";
         } else if (subject_id == mathId) {
-            query = "INSERT INTO math_tbl (subject_id, teacher_id) VALUES (2, ?)";
+            query = "INSERT INTO math_tbl (subject_id, teacher_id) VALUES (3, ?)";
         } else if (subject_id == scienceId) {
-            query = "INSERT INTO science_tbl (subject_id, teacher_id) VALUES (2, ?)";
+            query = "INSERT INTO science_tbl (subject_id, teacher_id) VALUES (4, ?)";
         } else if (subject_id == socialStudiesId) {
-            query = "INSERT INTO socialstudies_tbl (subject_id, teacher_id) VALUES (2, ?)";
+            query = "INSERT INTO socialstudies_tbl (subject_id, teacher_id) VALUES (5, ?)";
         } else {
             return;
         }
         teacherModel.executeEachTable(teacher_id, query);
     }
-
-    // add teacher(List Page)
-    // @FXML
-    // private void addTeacher(ActionEvent event) {
-    // if (!this.name.getText().equals("") && !this.password.getText().equals("")
-    // && this.hireDate.getValue() != null) {
-    // String addSubject1 = this.subject1Box.getValue();
-    // String addSubject2 = this.subject2Box.getValue();
-    // String addSubject3 = this.subject3Box.getValue();
-
-    // // Check subject duplication
-    // if (checkDuplication(addSubject1, addSubject2, addSubject3)) {
-    // if (addSubject1 == "Subject 1" || addSubject1 == null)
-    // addSubject1 = "";
-
-    // if (addSubject2 == "Subject 2" || addSubject2 == null)
-    // addSubject2 = "";
-
-    // if (addSubject3 == "Subject 3" || addSubject3 == null)
-    // addSubject3 = "";
-
-    // // Execute AddTeacher method from TeacherModel
-    // teacherModel.addTeacher(this.name.getText(), this.hireDate,
-    // this.password.getText(),
-    // addSubject1, addSubject2, addSubject3);
-    // this.loadTeacherData();
-    // this.loadTeacherDataSearch(teacherModel.getTeachers());
-
-    // // Add teacher_id(teachers_tbl) to each subject table
-    // String[] subjects = { addSubject1, addSubject2, addSubject3 };
-    // for (String subject : subjects) {
-    // if (teacherModel.checkSubject(subject) != 0) {
-    // addEachSubjectTable(teacherModel.checkSubject(subject),
-    // teacherModel.getTeacherIdAfterAdded());
-    // }
-    // }
-    // this.clearFields(null);
-
-    // } else {
-    // alertModal();
-    // dialog.showAndWait().ifPresent(res -> {
-    // });
-    // }
-
-    // } else {
-    // errorMsg.setText("*Input name, password and hired date");
-    // }
-    // }
 
     // Update with Modal(List Page)
     // create modal
@@ -455,20 +391,6 @@ public class TeacherListController implements Initializable {
         dialog.getDialogPane().getButtonTypes().add(doneButton);
     }
 
-    // Validate Hire Date(List Page)
-    public LocalDate checkDate() {
-        TeacherData selectedItem = teacherDataTableView.getSelectionModel().getSelectedItem();
-        LocalDate setHireDate;
-        if (editHireDate.getValue() == null) {
-            String originalDate = selectedItem.hireDateProperty().getValue();
-            setHireDate = LocalDate.parse(originalDate);
-            return setHireDate;
-        } else {
-            setHireDate = editHireDate.getValue();
-        }
-        return setHireDate;
-    }
-
     // Check duplication of subject(List Page)
     public boolean checkDuplication(String sub1, String sub2, String sub3) {
         String subs[] = { sub1, sub2, sub3 };
@@ -482,18 +404,26 @@ public class TeacherListController implements Initializable {
         return true;
     }
 
+    public ArrayList<String> loadLoginUserData() {
+        teacherModel.getLogindata(loginUserId);
+        this.loginData.addAll(teacherModel.getLogindata(loginUserId));
+        this.editNameString = this.loginData.get(0);
+        this.editPasswordString = this.loginData.get(1);
+        this.editSubject1String = this.loginData.get(3);
+        this.editSubject2String = this.loginData.get(4);
+        this.editSubject3String = this.loginData.get(5);
+        System.out.println("LoginData(Controller):" + loginData);
+        System.out.println("Length:" + loginData.size());
+        return loginData;
+    }
+
     // Edit teacher data(List Page)
     @FXML
     private void editTeacher(ActionEvent event) {
-        // int index = teacherDataTableView.getSelectionModel().getSelectedIndex();
-        // TeacherData selectedItem =
-        // teacherDataTableView.getSelectionModel().getSelectedItem();
-        // String editId = selectedItem.idProperty().getValue();
 
-        System.out.println("Login User ID" + loginUserId);
-        System.out.println(teacherModel.getLogindata(loginUserId));
+        this.loadLoginUserData();
         // call the modal
-        createModal();
+        this.createModal();
 
         // call model
         dialog.showAndWait().ifPresent(response -> {
@@ -505,9 +435,38 @@ public class TeacherListController implements Initializable {
 
                 // check duplicate
                 if (checkDuplication(addSubject1, addSubject2, addSubject3)) {
+                    ArrayList<String> deleteSubjects = teacherModel.getSubjectData(loginUserId);
+
+                    // check hire date
+                    LocalDate setHireDate;
+                    if (editHireDate.getValue() == null) {
+                        String originalDate = loginData.get(2);
+                        if (originalDate == null) {
+                            originalDate = "1999-01-01";
+                        }
+                        setHireDate = LocalDate.parse(originalDate);
+                    } else {
+                        setHireDate = editHireDate.getValue();
+                    }
+
+                    // Clear subject
+                    if (addSubject1 == null) {
+                        addSubject1 = deleteSubjects.get(0);
+                    } else if (addSubject1.equals("Clear")) {
+                        addSubject1 = "";
+                    }
+                    if (addSubject2 == null) {
+                        addSubject2 = deleteSubjects.get(1);
+                    } else if (addSubject2.equals("Clear")) {
+                        addSubject2 = "";
+                    }
+                    if (addSubject3 == null) {
+                        addSubject3 = deleteSubjects.get(2);
+                    } else if (addSubject3.equals("Clear")) {
+                        addSubject3 = "";
+                    }
 
                     // Delete Subject data First
-                    ArrayList<String> deleteSubjects = teacherModel.getSubjectData(loginUserId);
                     for (String deleteSubject : deleteSubjects) {
                         if (teacherModel.checkSubject(deleteSubject) != 0) {
                             deleteEachSubjectTable(teacherModel.checkSubject(deleteSubject),
@@ -516,15 +475,16 @@ public class TeacherListController implements Initializable {
                     }
 
                     // Edit Teacher_tbl data
-                    teacherModel.editTeacher(teacherDataTableView.getSelectionModel().getSelectedIndex(),
-                            editIdString, editName.getText(), Date.valueOf(checkDate()),
+                    teacherModel.editLoginTeacher(
+                            loginUserId, editName.getText(), Date.valueOf(setHireDate),
                             editPassword.getText(), addSubject1, addSubject2, addSubject3);
 
                     // Add New Subject Data
                     ArrayList<String> addSubjects = teacherModel.getSubjectData(loginUserId);
                     for (String addSubject : addSubjects) {
                         if (teacherModel.checkSubject(addSubject) != 0) {
-                            addEachSubjectTable(teacherModel.checkSubject(addSubject), Integer.parseInt(loginUserId));
+                            addEachSubjectTable(teacherModel.checkSubject(addSubject),
+                                    Integer.parseInt(loginUserId));
                         }
                     }
 
@@ -534,37 +494,14 @@ public class TeacherListController implements Initializable {
                         this.clearFields(null);
                     });
                 }
-
+                loginData.removeAll(loginData);
                 this.loadTeacherData();
+                this.loadTeacherDataSearch(teacherModel.getTeachers());
+                this.loginName.setText("User Name: " + editName.getText());
                 this.clearFields(null);
             }
         });
-
     }
-
-    // delete Teacher(List Page)
-    // @FXML
-    // private void deleteTeacher(ActionEvent event) {
-    // TeacherData selectedItem =
-    // teacherDataTableView.getSelectionModel().getSelectedItem();
-    // if (teacherDataTableView.getSelectionModel().getSelectedIndex() != -1) {
-    // String deleteId = selectedItem.idProperty().getValue();
-
-    // // Delete every subjects(Subject1 ~ 3) data from each subject table
-    // ArrayList<String> subjects = teacherModel.getSubjectData(deleteId);
-    // for (String subject : subjects) {
-    // if (teacherModel.checkSubject(subject) != 0) {
-    // deleteEachSubjectTable(teacherModel.checkSubject(subject),
-    // Integer.parseInt(deleteId));
-    // }
-    // }
-    // teacherModel.deleteTeacher(deleteId);
-    // this.loadTeacherData();
-    // this.clearFields(null);
-    // } else {
-    // errorMsg.setText("*Select employee data which you want to delete");
-    // }
-    // }
 
     // Execute sql statement and add teacher_id into specific subject_tbl(List Page)
     // If I use solid number, "if statement" can change to "switch"
@@ -588,12 +525,6 @@ public class TeacherListController implements Initializable {
     // clear fields
     @FXML
     private void clearFields(ActionEvent event) {
-        // this.name.setText("");
-        // this.password.setText("");
-        // this.hireDate.setValue(null);
-        // this.subject1Box.setValue(null);
-        // this.subject2Box.setValue(null);
-        // this.subject3Box.setValue(null);
         this.searchName.setText("");
         this.searchHireDate.setValue(null);
         errorMsg.setText(null);

@@ -304,11 +304,11 @@ public class AdminTeacherListController implements Initializable {
         if (subject_id == englishId) {
             query = "INSERT INTO english_tbl (subject_id, teacher_id) VALUES (2, ?)";
         } else if (subject_id == mathId) {
-            query = "INSERT INTO math_tbl (subject_id, teacher_id) VALUES (2, ?)";
+            query = "INSERT INTO math_tbl (subject_id, teacher_id) VALUES (3, ?)";
         } else if (subject_id == scienceId) {
-            query = "INSERT INTO science_tbl (subject_id, teacher_id) VALUES (2, ?)";
+            query = "INSERT INTO science_tbl (subject_id, teacher_id) VALUES (4, ?)";
         } else if (subject_id == socialStudiesId) {
-            query = "INSERT INTO socialstudies_tbl (subject_id, teacher_id) VALUES (2, ?)";
+            query = "INSERT INTO socialstudies_tbl (subject_id, teacher_id) VALUES (5, ?)";
         } else {
             return;
         }
