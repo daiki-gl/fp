@@ -1,10 +1,13 @@
 Button {
     -fx-font-family: arial;
     -fx-font-size: 18px;
+    -fx-background-color:  #fff !important;
 }
 
 Button:hover {
-    -fx-opacity: .8;
+    -fx-background-color:  #4D7EB9 !important;
+    -fx-text-fill: #fff;
+    -fx-border-color: #fff;
 }
 
 #ParentGridpane {

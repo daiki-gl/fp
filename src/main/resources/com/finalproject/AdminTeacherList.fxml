@@ -17,147 +17,161 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" style="-fx-font-family:arial" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.finalproject.AdminTeacherListController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1300.0" style="-fx-font-family:arial" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.finalproject.AdminTeacherListController">
    <children>
-      <TabPane prefHeight="807.0" prefWidth="1302.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="840.0" prefWidth="1302.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Teacher List">
+          <Tab style="-fx-background-color: #ffffff; -fx-text-fill: #4d7eb9;" text="Teacher List">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1302.0">
                      <children>
-                        <HBox layoutX="334.0" prefHeight="768.0" prefWidth="965.0">
+                        <HBox layoutX="334.0" prefHeight="810.0" prefWidth="965.0">
                            <children>
-                              <TableView fx:id="teacherDataTableView" prefHeight="768.0" prefWidth="974.0">
+                              <TableView fx:id="teacherDataTableView" prefHeight="768.0" prefWidth="965.0">
                                 <columns>
-                                  <TableColumn fx:id="idColumn" minWidth="100.0" prefWidth="75.0" text="ID" />
-                                  <TableColumn fx:id="nameColumn" minWidth="200.0" prefWidth="75.0" text="NAME" />
-                                    <TableColumn fx:id="hireDateColumn" minWidth="300.0" prefWidth="75.0" text="Hired Date" />
-                                    <TableColumn fx:id="subject1Column" minWidth="112.96441650390625" prefWidth="112.96441650390625" text="Subject 1" />
-                                    <TableColumn fx:id="subject2Column" minWidth="112.96441650390625" prefWidth="112.96441650390625" text="Subject 2" />
-                                    <TableColumn fx:id="subject3Column" minWidth="112.96441650390625" prefWidth="112.96441650390625" text="Subject 3" />
+                                  <TableColumn fx:id="idColumn" editable="false" minWidth="100.0" prefWidth="75.0" sortable="false" text="ID" />
+                                  <TableColumn fx:id="nameColumn" editable="false" minWidth="200.0" prefWidth="75.0" sortable="false" text="NAME" />
+                                    <TableColumn fx:id="hireDateColumn" editable="false" minWidth="300.0" prefWidth="75.0" text="Hired Date" />
+                                    <TableColumn fx:id="subject1Column" editable="false" minWidth="112.96441650390625" prefWidth="112.96441650390625" sortable="false" text="Subject 1" />
+                                    <TableColumn fx:id="subject2Column" editable="false" minWidth="112.96441650390625" prefWidth="127.1104736328125" sortable="false" text="Subject 2" />
+                                    <TableColumn fx:id="subject3Column" editable="false" minWidth="112.96441650390625" prefWidth="123.8895263671875" sortable="false" text="Subject 3" />
                                 </columns>
                               </TableView>
                            </children>
                         </HBox>
-                        <VBox prefHeight="770.0" prefWidth="333.0">
+                        <VBox prefHeight="810.0" prefWidth="333.0" style="-fx-background-color: #ffffff;">
                            <children>
-                              <Label alignment="TOP_CENTER" prefHeight="27.0" prefWidth="338.0" text="Teacher List">
+                              <Label alignment="TOP_CENTER" prefHeight="27.0" prefWidth="338.0" text="D&amp;H School Management System 　" textFill="#4d7eb9">
                                  <font>
-                                    <Font name="Arial" size="24.0" />
+                                    <Font name="SansSerif Regular" size="16.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="5.0" top="5.0" />
+                                    <Insets top="20.0" />
                                  </VBox.margin>
                               </Label>
-                              <TextField fx:id="name" promptText="Teacher Name">
+                              <Label alignment="TOP_CENTER" prefHeight="27.0" prefWidth="338.0" text="ABC SCHOOL" textFill="#4d7eb9">
                                  <font>
-                                    <Font name="Arial" size="18.0" />
+                                    <Font name="SansSerif Regular" size="32.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="name" prefHeight="40.0" prefWidth="300.0" promptText="Teacher Name" style="-fx-background-color: #EAEAEA; -fx-border-radius: 10px;">
+                                 <font>
+                                    <Font name="SansSerif Regular" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="27.0" right="27.0" top="20.0" />
                                  </VBox.margin>
                               </TextField>
-                              <DatePicker fx:id="hireDate" prefHeight="25.0" prefWidth="345.0" promptText="Hired Date">
+                              <DatePicker fx:id="hireDate" prefHeight="40.0" prefWidth="300.0" promptText="Hired Date">
                                  <VBox.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="10.0" left="27.0" right="27.0" />
                                  </VBox.margin>
                               </DatePicker>
-                              <PasswordField fx:id="password" promptText="Password">
+                              <PasswordField fx:id="password" prefHeight="40.0" prefWidth="300.0" promptText="Password" style="-fx-background-color: #EAEAEA; -fx-border-radius: 10px;">
                                  <font>
-                                    <Font name="Arial" size="18.0" />
+                                    <Font name="SansSerif Regular" size="18.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="10.0" left="27.0" right="27.0" />
                                  </VBox.margin>
                               </PasswordField>
-                              <Label text="Subject 1:">
+                              <Label prefHeight="10.0" prefWidth="300.0" text="Subject 1:" textFill="#4d7eb9">
                                  <font>
-                                    <Font name="Arial" size="18.0" />
+                                    <Font name="SansSerif Regular" size="16.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="5.0" left="3.0" />
+                                    <Insets bottom="5.0" left="27.0" right="27.0" top="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <ComboBox fx:id="subject1Box" prefHeight="25.0" prefWidth="346.0" promptText="Subject 1">
+                              <ComboBox fx:id="subject1Box" prefHeight="40.0" prefWidth="300.0" promptText="Subject 1">
                                  <VBox.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="10.0" left="27.0" right="27.0" />
                                  </VBox.margin>
                                  <padding>
                                     <Insets bottom="5.0" top="5.0" />
                                  </padding>
                               </ComboBox>
-                              <Label text="Subject 2:">
+                              <Label prefHeight="10.0" prefWidth="300.0" text="Subject 2:" textFill="#4d7eb9">
                                  <font>
-                                    <Font name="Arial" size="18.0" />
+                                    <Font name="SansSerif Regular" size="16.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="3.0" left="5.0" />
+                                    <Insets bottom="3.0" left="27.0" right="27.0" />
                                  </VBox.margin>
                               </Label>
-                              <ComboBox fx:id="subject2Box" prefHeight="25.0" prefWidth="346.0" promptText="Subject 2">
+                              <ComboBox fx:id="subject2Box" prefHeight="40.0" prefWidth="300.0" promptText="Subject 2">
                                  <VBox.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="10.0" left="27.0" right="27.0" />
                                  </VBox.margin>
                                  <padding>
                                     <Insets bottom="5.0" top="5.0" />
                                  </padding>
                               </ComboBox>
-                              <Label text="Subject 3:">
+                              <Label prefHeight="10.0" prefWidth="300.0" text="Subject 3:" textFill="#4d7eb9">
                                  <font>
-                                    <Font name="Arial" size="18.0" />
+                                    <Font name="SansSerif Regular" size="16.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="3.0" left="5.0" />
+                                    <Insets bottom="3.0" left="27.0" right="27.0" />
                                  </VBox.margin>
                               </Label>
-                              <ComboBox fx:id="subject3Box" prefHeight="25.0" prefWidth="346.0" promptText="Subject 3">
+                              <ComboBox fx:id="subject3Box" prefHeight="40.0" prefWidth="300.0" promptText="Subject 3">
                                  <VBox.margin>
-                                    <Insets bottom="30.0" />
+                                    <Insets bottom="30.0" left="27.0" right="27.0" />
                                  </VBox.margin>
                                  <padding>
                                     <Insets bottom="5.0" top="5.0" />
                                  </padding>
                               </ComboBox>
-                              <Button fx:id="addTeacherBtn" mnemonicParsing="false" onAction="#addTeacher" prefHeight="40.0" prefWidth="400.0" text="Add Teacher">
+                              <Button fx:id="addTeacherBtn" mnemonicParsing="false" onAction="#addTeacher" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #4D7EB9; -fx-border-radius: 10px; -fx-border-color: #4D7EB9;" text="Add Teacher" textFill="#4d7eb9">
                                  <font>
-                                    <Font name="Arial" size="18.0" />
+                                    <Font name="SansSerif Regular" size="18.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="10.0" left="27.0" right="27.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#clearFields" prefHeight="40.0" prefWidth="400.0" text="Clear Form">
+                              <Button fx:id="updateTeacherBtn" mnemonicParsing="false" onAction="#editTeacher" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #4D7EB9; -fx-border-radius: 10px; -fx-border-color: #4D7EB9;" text="Update Teacher" textFill="#4d7eb9">
                                  <font>
-                                    <Font name="Arial" size="18.0" />
+                                    <Font name="SansSerif Regular" size="18.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="10.0" left="27.0" right="27.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="updateTeacherBtn" mnemonicParsing="false" onAction="#editTeacher" prefHeight="40.0" prefWidth="400.0" text="Update Teacher">
+                              <Button fx:id="deleteTeacherBtn" mnemonicParsing="false" onAction="#deleteTeacher" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #4D7EB9; -fx-border-radius: 10px; -fx-border-color: #4D7EB9;" text="Delete Teacher" textFill="#4d7eb9">
                                  <font>
-                                    <Font name="Arial" size="18.0" />
+                                    <Font name="SansSerif Regular" size="18.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets left="27.0" right="27.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="deleteTeacherBtn" mnemonicParsing="false" onAction="#deleteTeacher" prefHeight="40.0" prefWidth="400.0" text="Delete Teacher">
+                              <Button fx:id="clearBtn" mnemonicParsing="false" onAction="#clearFields" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #4D7EB9; -fx-border-radius: 10px; -fx-border-color: #4D7EB9;" text="Clear Form" textFill="#4d7eb9">
                                  <font>
-                                    <Font name="Arial" size="18.0" />
+                                    <Font name="SansSerif Regular" size="18.0" />
                                  </font>
+                                 <VBox.margin>
+                                    <Insets left="27.0" right="27.0" top="10.0" />
+                                 </VBox.margin>
                               </Button>
                               <Label fx:id="errorMsg" textFill="#cd2c2c">
                                  <font>
-                                    <Font name="Arial" size="14.0" />
-                                 </font>
-                              </Label>
-                              <Hyperlink fx:id="logout" onAction="#Logout" text="Log out">
-                                 <font>
-                                    <Font name="Arial" size="14.0" />
+                                    <Font name="SansSerif Regular" size="14.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets left="10.0" top="140.0" />
+                                    <Insets left="27.0" right="27.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Hyperlink fx:id="logout" alignment="CENTER" onAction="#Logout" prefHeight="60.0" prefWidth="300.0" style="-fx-border-radius: 10px; -fx-border-color: #4d7eb9;" text="Log out" textFill="#4d7eb9">
+                                 <font>
+                                    <Font name="SansSerif Regular" size="16.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="27.0" right="27.0" />
                                  </VBox.margin>
                               </Hyperlink>
                            </children>
@@ -173,44 +187,52 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <HBox layoutX="334.0" prefHeight="768.0" prefWidth="965.0">
+                        <HBox layoutX="334.0" prefHeight="810.0" prefWidth="965.0">
                            <children>
-                              <TableView fx:id="teacherDataTableSearch" prefHeight="768.0" prefWidth="974.0">
+                              <TableView fx:id="teacherDataTableSearch" prefHeight="804.0" prefWidth="965.0">
                                  <columns>
                                     <TableColumn fx:id="idColumnSearch" minWidth="100.0" prefWidth="75.0" text="ID" />
                                     <TableColumn fx:id="nameColumnSearch" minWidth="200.0" prefWidth="75.0" text="NAME" />
                                     <TableColumn fx:id="hireDateColumnSearch" minWidth="300.0" prefWidth="75.0" text="Hired Date" />
-                                    <TableColumn fx:id="subject1ColumnSearch" minWidth="112.96441650390625" prefWidth="112.96441650390625" text="Subject 1" />
-                                    <TableColumn fx:id="subject2ColumnSearch" minWidth="112.96441650390625" prefWidth="112.96441650390625" text="Subject 2" />
-                                    <TableColumn fx:id="subject3ColumnSearch" minWidth="112.96441650390625" prefWidth="112.96441650390625" text="Subject 3" />
+                                    <TableColumn fx:id="subject1ColumnSearch" minWidth="112.96441650390625" prefWidth="120.8763427734375" text="Subject 1" />
+                                    <TableColumn fx:id="subject2ColumnSearch" minWidth="112.96441650390625" prefWidth="117.6236572265625" text="Subject 2" />
+                                    <TableColumn fx:id="subject3ColumnSearch" minWidth="112.96441650390625" prefWidth="125.622802734375" text="Subject 3" />
                                  </columns>
                               </TableView>
                            </children>
                         </HBox>
-                        <VBox prefHeight="770.0" prefWidth="333.0">
+                        <VBox prefHeight="810.0" prefWidth="333.0" style="-fx-background-color: #ffffff;">
                            <children>
-                              <Label alignment="TOP_CENTER" prefHeight="27.0" prefWidth="338.0" text="Search Teacher">
+                              <Label alignment="TOP_CENTER" prefHeight="27.0" prefWidth="338.0" text="D&amp;H School Management System 　" textFill="#4d7eb9">
                                  <font>
-                                    <Font name="Arial" size="24.0" />
+                                    <Font name="SansSerif Regular" size="16.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="5.0" top="5.0" />
+                                    <Insets top="20.0" />
                                  </VBox.margin>
                               </Label>
-                              <TextField fx:id="searchName" promptText="Teacher Name">
+                              <Label alignment="TOP_CENTER" prefHeight="27.0" prefWidth="338.0" text="ABC SCHOOL" textFill="#4d7eb9">
                                  <font>
-                                    <Font name="Arial" size="18.0" />
+                                    <Font name="SansSerif Regular" size="32.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="searchName" prefHeight="50.0" prefWidth="300.0" promptText="Teacher Name" style="-fx-background-color: #EAEAEA;">
+                                 <font>
+                                    <Font name="SansSerif Regular" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" left="27.0" right="27.0" top="20.0" />
                                  </VBox.margin>
                               </TextField>
-                              <Button fx:id="serachByNameBtn" mnemonicParsing="false" onAction="#searchByName" prefHeight="40.0" prefWidth="400.0" text="Search by Name">
+                              <Button fx:id="serachByNameBtn" mnemonicParsing="false" onAction="#searchByName" prefHeight="50.0" prefWidth="300.0" style="-fx-border-radius: 10px; -fx-border-color: #4D7EB9; -fx-background-color: transparent;" text="Search by Name" textFill="#4d7eb9">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="10.0" left="27.0" right="27.0" />
                                  </VBox.margin>
                               </Button>
                               <Label fx:id="errorMsg1" textFill="#cd2c2c">
@@ -218,65 +240,65 @@
                                     <Font name="Arial" size="14.0" />
                                  </font>
                               </Label>
-                              <DatePicker fx:id="searchHireDate" prefHeight="25.0" prefWidth="345.0" promptText="Hired Date">
+                              <DatePicker fx:id="searchHireDate" prefHeight="50.0" prefWidth="300.0" promptText="Hired Date">
                                  <VBox.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="10.0" left="27.0" right="27.0" />
                                  </VBox.margin>
                               </DatePicker>
-                              <Button fx:id="serachByDateBtn" mnemonicParsing="false" onAction="#searchByDate" prefHeight="40.0" prefWidth="400.0" text="Search by Date">
+                              <Button fx:id="serachByDateBtn" mnemonicParsing="false" onAction="#searchByDate" prefHeight="50.0" prefWidth="300.0" style="-fx-border-color: #4D7EB9; -fx-border-radius: 10px;" text="Search by Date" textFill="#4d7eb9">
+                                 <font>
+                                    <Font name="SansSerif Regular" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="27.0" right="27.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="serachByEngBtn" mnemonicParsing="false" onAction="#searchByEng" prefHeight="50.0" prefWidth="300.0" style="-fx-border-color: #4D7EB9; -fx-border-radius: 10px;" text="Search by English" textFill="#4d7eb9">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="20.0" />
+                                    <Insets bottom="10.0" left="27.0" right="27.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="serachByEngBtn" mnemonicParsing="false" onAction="#searchByEng" prefHeight="40.0" prefWidth="400.0" text="Search by English">
+                              <Button fx:id="serachByMathBtn" mnemonicParsing="false" onAction="#searchByMath" prefHeight="50.0" prefWidth="300.0" style="-fx-border-color: #4D7EB9; -fx-border-radius: 10px;" text="Search by Mathematics" textFill="#4d7eb9">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="10.0" left="27.0" right="27.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="serachByMathBtn" mnemonicParsing="false" onAction="#searchByMath" prefHeight="40.0" prefWidth="400.0" text="Search by Mathematics">
+                              <Button fx:id="serachBySciBtn" mnemonicParsing="false" onAction="#searchBySci" prefHeight="50.0" prefWidth="300.0" style="-fx-border-color: #4D7EB9; -fx-border-radius: 10px;" text="Search by Science" textFill="#4d7eb9">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets bottom="10.0" left="27.0" right="27.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="serachBySciBtn" mnemonicParsing="false" onAction="#searchBySci" prefHeight="40.0" prefWidth="400.0" text="Search by Science">
+                              <Button fx:id="serachBySocBtn" mnemonicParsing="false" onAction="#searchBySoci" prefHeight="50.0" prefWidth="300.0" style="-fx-border-color: #4D7EB9; -fx-border-radius: 10px;" text="Search by Social Studies" textFill="#4d7eb9">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="10.0" />
+                                    <Insets left="27.0" right="27.0" />
                                  </VBox.margin>
                               </Button>
-                              <Button fx:id="serachBySocBtn" mnemonicParsing="false" onAction="#searchBySoci" prefHeight="40.0" prefWidth="400.0" text="Search by Social Studies">
-                                 <font>
-                                    <Font name="Arial" size="18.0" />
-                                 </font>
+                              <Label fx:id="searchMsg" textFill="#4d7eb9">
                                  <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                              </Button>
-                              <Label fx:id="searchMsg">
-                                 <VBox.margin>
-                                    <Insets left="3.0" top="20.0" />
+                                    <Insets left="27.0" right="27.0" top="10.0" />
                                  </VBox.margin>
                                  <font>
-                                    <Font name="Arial" size="14.0" />
+                                    <Font name="SansSerif Regular" size="14.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="showEveryTeacherBtn" mnemonicParsing="false" onAction="#showEveryData" prefHeight="60.0" prefWidth="400.0" text="Show All Teacher">
+                              <Button fx:id="showEveryTeacherBtn" mnemonicParsing="false" onAction="#showEveryData" prefHeight="60.0" prefWidth="300.0" style="-fx-border-color: #4D7EB9; -fx-border-radius: 10px;" text="Show All Teacher" textFill="#4d7eb9">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets top="230.0" />
+                                    <Insets left="27.0" right="27.0" top="90.0" />
                                  </VBox.margin>
                               </Button>
                            </children>

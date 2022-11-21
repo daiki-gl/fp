@@ -212,7 +212,6 @@ public class AdminTeacherListController implements Initializable {
         this.subject3Column.setCellValueFactory(new PropertyValueFactory<TeacherData, String>("subject3"));
         this.teacherDataTableView.setItems(teacherModel.getTeachers());
         errorMsg.setText(null);
-
     }
 
     // **************************************
@@ -334,7 +333,6 @@ public class AdminTeacherListController implements Initializable {
 
                 if (addSubject3 == "Subject 3" || addSubject3 == null)
                     addSubject3 = "";
-
                 // Execute AddTeacher method from TeacherModel
                 teacherModel.addTeacher(this.name.getText(), this.hireDate, this.password.getText(),
                         addSubject1, addSubject2, addSubject3);

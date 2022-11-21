@@ -8,41 +8,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.finalproject.SignupController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="688.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.finalproject.SignupController">
    <children>
-      <Label layoutX="64.0" layoutY="39.0" text="Sign up">
+      <Label layoutX="278.0" layoutY="40.0" text="SIGN UP" textFill="#4d7eb9">
          <font>
-            <Font name="Chalkduster" size="24.0" />
+            <Font name="SansSerif Regular" size="32.0" />
          </font>
       </Label>
-      <Label layoutX="66.0" layoutY="93.0" text="Username: ">
+      <TextField fx:id="username" layoutX="154.0" layoutY="90.0" prefHeight="52.0" prefWidth="380.0" promptText="User ID" style="-fx-background-color: #EAEAEA; -fx-border-radius: 10px;">
          <font>
-            <Font name="Chalkboard SE Light" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="69.0" layoutY="166.0" text="Password: ">
-         <font>
-            <Font name="Chalkboard SE Light" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="66.0" layoutY="236.0" text="Password confirmation: ">
-         <font>
-            <Font name="Chalkboard SE Light" size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="username" layoutX="66.0" layoutY="121.0" prefHeight="33.0" prefWidth="452.0">
-         <font>
-            <Font name="Microsoft Sans Serif" size="18.0" />
+            <Font name="SansSerif Regular" size="16.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="password" layoutX="67.0" layoutY="191.0" prefHeight="33.0" prefWidth="452.0">
+      <PasswordField fx:id="password" layoutX="154.0" layoutY="160.0" prefHeight="52.0" prefWidth="380.0" promptText="Password" style="-fx-background-color: #EAEAEA; -fx-border-radius: 10px;">
          <font>
-            <Font name="Microsoft Sans Serif" size="18.0" />
+            <Font name="SansSerif Regular" size="16.0" />
          </font>
       </PasswordField>
-      <PasswordField fx:id="passwordConfirm" layoutX="64.0" layoutY="265.0" prefHeight="33.0" prefWidth="452.0">
+      <PasswordField fx:id="passwordConfirm" layoutX="154.0" layoutY="228.0" prefHeight="52.0" prefWidth="380.0" promptText="Comfirm Password" style="-fx-background-color: #EAEAEA; -fx-border-radius: 10px;">
          <font>
-            <Font name="Microsoft Sans Serif" size="18.0" />
+            <Font name="SansSerif Regular" size="16.0" />
          </font>
       </PasswordField>
       <Label fx:id="signupStatus" layoutX="380.0" layoutY="63.0" textFill="#ff4e4e">
@@ -50,14 +35,14 @@
             <Font name="Chalkduster" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="signupBtn" layoutX="64.0" layoutY="310.0" mnemonicParsing="false" onAction="#signup" prefHeight="49.0" prefWidth="309.0" text="Sign up">
+      <Button fx:id="signupBtn" layoutX="154.0" layoutY="295.0" mnemonicParsing="false" onAction="#signup" prefHeight="52.0" prefWidth="380.0" style="-fx-background-color: #4D7EB9; -fx-border-radius: 10px;" text="Sign up" textFill="WHITE">
          <font>
-            <Font name="Chalkduster" size="24.0" />
+            <Font name="SansSerif Regular" size="32.0" />
          </font>
       </Button>
-      <Hyperlink fx:id="login" layoutX="414.0" layoutY="335.0" onAction="#BackToLogin" text="Back to Login" underline="true">
+      <Hyperlink fx:id="login" layoutX="608.0" layoutY="20.0" onAction="#BackToLogin" text="Log in" textFill="#585858">
          <font>
-            <Font name="Chalkduster" size="13.0" />
+            <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Hyperlink>
    </children>
