@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="688.0" style="-fx-background-color: #4D7EB9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.finalproject.AdminLoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="688.0" style="-fx-background-color: #4D7EB9;" stylesheets="@login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.finalproject.AdminLoginController">
    <children>
       <Label layoutX="250.0" layoutY="65.0" text="ADMIN LOGIN" textAlignment="CENTER" textFill="WHITE">
          <font>
@@ -26,7 +26,7 @@
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </PasswordField>
-      <Button fx:id="loginBtn" alignment="CENTER" contentDisplay="TOP" graphicTextGap="10.0" layoutX="154.0" layoutY="270.0" mnemonicParsing="false" onAction="#Login" prefHeight="52.0" prefWidth="380.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px;" text="Admin Login" textFill="#4d7eb9">
+      <Button fx:id="loginBtn" alignment="CENTER" contentDisplay="TOP" graphicTextGap="10.0" layoutX="154.0" layoutY="270.0" mnemonicParsing="false" onAction="#Login" prefHeight="52.0" prefWidth="380.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px;" styleClass="loginBtn" stylesheets="@css/login.css" text="Admin Login" textFill="#4d7eb9">
          <font>
             <Font name="SansSerif Regular" size="32.0" />
          </font>

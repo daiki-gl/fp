@@ -499,7 +499,6 @@ public class TeacherModel {
             loginData.add(this.teacherData.get(0).getSubject1());
             loginData.add(this.teacherData.get(0).getSubject2());
             loginData.add(this.teacherData.get(0).getSubject3());
-            System.out.println("Login Data:" + loginData + "========================");
             return loginData;
 
         } catch (SQLException e) {
@@ -507,40 +506,4 @@ public class TeacherModel {
         }
         return null;
     }
-    // public ArrayList<String> getLogindata(String id) {
-    // ArrayList<String> loginData = new ArrayList<>();
-    // String query = "SELECT * FROM teachers_tbl WHERE teacher_id = ?;";
-    // this.teacherData = FXCollections.observableArrayList();
-    // PreparedStatement statement = null;
-    // ResultSet resultSet = null;
-
-    // try {
-    // statement = conn.prepareStatement(query);
-    // statement.setInt(1, Integer.parseInt(id));
-    // resultSet = statement.executeQuery();
-
-    // while (resultSet.next()) {
-    // this.teacherData.add(new TeacherData(
-    // resultSet.getString(1),
-    // resultSet.getString(2),
-    // resultSet.getString(3),
-    // resultSet.getString(4),
-    // resultSet.getString(5),
-    // resultSet.getString(6),
-    // resultSet.getString(7)));
-    // }
-    // loginData.add(this.teacherData.get(0).getName());
-    // loginData.add(this.teacherData.get(0).getPassword());
-    // loginData.add(this.teacherData.get(0).getHireDate());
-    // loginData.add(this.teacherData.get(0).getSubject1());
-    // loginData.add(this.teacherData.get(0).getSubject2());
-    // loginData.add(this.teacherData.get(0).getSubject3());
-    // System.out.println("Login Data:" + loginData);
-    // return loginData;
-
-    // } catch (SQLException e) {
-    // e.printStackTrace();
-    // }
-    // return null;
-    // }
 }

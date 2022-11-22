@@ -17,7 +17,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" style="-fx-font-family: Sansserif; -fx-background-color: #4D7EB9;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.finalproject.TeacherListController">
    <children>
-      <TabPane prefHeight="807.0" prefWidth="1302.0" style="-fx-background-color: #4D7EB9;" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="807.0" prefWidth="1302.0" style="-fx-background-color: #4D7EB9;" stylesheets="@css/application.css" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab style="-fx-backgroud-color: #4D7EB9;" text="Teacher List">
             <content>
@@ -76,7 +76,7 @@
                                     <Insets bottom="10.0" left="27.0" right="27.0" />
                                  </VBox.margin>
                               </Button>
-                              <Hyperlink fx:id="logout" alignment="CENTER" contentDisplay="CENTER" onAction="#Logout" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #ffffff; border-r: 10px;" text="Log out" textFill="#4d7eb9">
+                              <Hyperlink fx:id="logout" alignment="CENTER" contentDisplay="CENTER" onAction="#Logout" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #ffffff; border-r: 10px;" styleClass="logoutWhite" stylesheets="@css/login.css" text="Log out" textFill="#4d7eb9">
                                  <font>
                                     <Font name="SansSerif Regular" size="20.0" />
                                  </font>

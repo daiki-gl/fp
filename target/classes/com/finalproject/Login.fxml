@@ -25,7 +25,7 @@
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </PasswordField>
-      <Button fx:id="loginBtn" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="10.0" layoutX="154.0" layoutY="270.0" mnemonicParsing="false" onAction="#Login" prefHeight="52.0" prefWidth="380.0" style="-fx-background-color: #4D7EB9; -fx-border-radius: 10px;" text="Log in" textFill="WHITE">
+      <Button fx:id="loginBtn" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="10.0" layoutX="154.0" layoutY="270.0" mnemonicParsing="false" onAction="#Login" prefHeight="52.0" prefWidth="380.0" style="-fx-background-color: #4D7EB9; -fx-border-radius: 10px;" styleClass="loginBtn" stylesheets="@css/login.css" text="Log in" textFill="WHITE">
          <font>
             <Font name="SansSerif Regular" size="32.0" />
          </font>

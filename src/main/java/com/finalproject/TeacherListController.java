@@ -313,7 +313,7 @@ public class TeacherListController implements Initializable {
 
         dialog = new Dialog<ButtonType>();
 
-        dialog.getDialogPane().getStylesheets().add("file:src/main/resources/com/finalproject/application.css");
+        dialog.getDialogPane().getStylesheets().add("file:src/main/resources/com/finalproject/css/application.css");
 
         dialog.setTitle("Edit Teacher Data<User ID:" + loginUserId + ">");
         ButtonType editModalButton = new ButtonType("Edit", ButtonData.OK_DONE);
@@ -369,7 +369,7 @@ public class TeacherListController implements Initializable {
 
         dialog = new Dialog<ButtonType>();
 
-        dialog.getDialogPane().getStylesheets().add("file:src/main/resources/com/finalproject/application.css");
+        dialog.getDialogPane().getStylesheets().add("file:src/main/resources/com/finalproject/css/application.css");
 
         dialog.setTitle("--- Error ---");
         ButtonType doneButton = new ButtonType("Close", ButtonData.OK_DONE);
@@ -412,8 +412,6 @@ public class TeacherListController implements Initializable {
         this.editSubject1String = this.loginData.get(3);
         this.editSubject2String = this.loginData.get(4);
         this.editSubject3String = this.loginData.get(5);
-        System.out.println("LoginData(Controller):" + loginData);
-        System.out.println("Length:" + loginData.size());
         return loginData;
     }
 

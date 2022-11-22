@@ -35,7 +35,7 @@
             <Font name="Chalkduster" size="13.0" />
          </font>
       </Label>
-      <Button fx:id="signupBtn" layoutX="154.0" layoutY="295.0" mnemonicParsing="false" onAction="#signup" prefHeight="52.0" prefWidth="380.0" style="-fx-background-color: #4D7EB9; -fx-border-radius: 10px;" text="Sign up" textFill="WHITE">
+      <Button fx:id="signupBtn" layoutX="154.0" layoutY="295.0" mnemonicParsing="false" onAction="#signup" prefHeight="52.0" prefWidth="380.0" style="-fx-background-color: #4D7EB9; -fx-border-radius: 10px;" styleClass="loginBtn" stylesheets="@css/login.css" text="Sign up" textFill="WHITE">
          <font>
             <Font name="SansSerif Regular" size="32.0" />
          </font>

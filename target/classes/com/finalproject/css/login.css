@@ -1,0 +1,16 @@
+.loginBtn:hover{
+    -fx-opacity: 0.8;
+    -fx-cursor: pointer;
+}
+
+.logout:hover, .logoutWhite:hover {
+    -fx-background-color: #4D7EB9;
+    -fx-text-fill: #fff;
+    -fx-border-radius: 10px;
+}
+
+.logoutWhite:hover {
+    -fx-background-color: #4D7EB9 !important;
+    -fx-border-color: #fff;
+    -fx-border-radius: 10px;
+}

@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1300.0" style="-fx-font-family:arial" stylesheets="@application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.finalproject.AdminTeacherListController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1300.0" style="-fx-font-family: Sansserif;" stylesheets="@css/application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.finalproject.AdminTeacherListController">
    <children>
       <TabPane prefHeight="840.0" prefWidth="1302.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -120,18 +120,26 @@
                               </Label>
                               <ComboBox fx:id="subject3Box" prefHeight="40.0" prefWidth="300.0" promptText="Subject 3">
                                  <VBox.margin>
-                                    <Insets bottom="30.0" left="27.0" right="27.0" />
+                                    <Insets left="27.0" right="27.0" />
                                  </VBox.margin>
                                  <padding>
                                     <Insets bottom="5.0" top="5.0" />
                                  </padding>
                               </ComboBox>
+                              <Label fx:id="errorMsg" textFill="#cd2c2c">
+                                 <font>
+                                    <Font name="SansSerif Regular" size="14.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="27.0" right="27.0" top="5.0" />
+                                 </VBox.margin>
+                              </Label>
                               <Button fx:id="addTeacherBtn" mnemonicParsing="false" onAction="#addTeacher" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #4D7EB9; -fx-border-radius: 10px; -fx-border-color: #4D7EB9;" text="Add Teacher" textFill="#4d7eb9">
                                  <font>
                                     <Font name="SansSerif Regular" size="18.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="10.0" left="27.0" right="27.0" />
+                                    <Insets bottom="10.0" left="27.0" right="27.0" top="5.0" />
                                  </VBox.margin>
                               </Button>
                               <Button fx:id="updateTeacherBtn" mnemonicParsing="false" onAction="#editTeacher" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #4D7EB9; -fx-border-radius: 10px; -fx-border-color: #4D7EB9;" text="Update Teacher" textFill="#4d7eb9">
@@ -158,20 +166,12 @@
                                     <Insets left="27.0" right="27.0" top="10.0" />
                                  </VBox.margin>
                               </Button>
-                              <Label fx:id="errorMsg" textFill="#cd2c2c">
-                                 <font>
-                                    <Font name="SansSerif Regular" size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets left="27.0" right="27.0" top="10.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Hyperlink fx:id="logout" alignment="CENTER" onAction="#Logout" prefHeight="60.0" prefWidth="300.0" style="-fx-border-radius: 10px; -fx-border-color: #4d7eb9;" text="Log out" textFill="#4d7eb9">
+                              <Hyperlink fx:id="logout" alignment="CENTER" onAction="#Logout" prefHeight="60.0" prefWidth="300.0" style="-fx-border-radius: 10px; -fx-border-color: #4d7eb9;" styleClass="logout" text="Log out" textFill="#4d7eb9">
                                  <font>
                                     <Font name="SansSerif Regular" size="16.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets left="27.0" right="27.0" />
+                                    <Insets left="27.0" right="27.0" top="20.0" />
                                  </VBox.margin>
                               </Hyperlink>
                            </children>

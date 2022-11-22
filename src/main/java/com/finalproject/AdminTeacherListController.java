@@ -365,7 +365,7 @@ public class AdminTeacherListController implements Initializable {
 
         dialog = new Dialog<ButtonType>();
 
-        dialog.getDialogPane().getStylesheets().add("file:src/main/resources/com/finalproject/application.css");
+        dialog.getDialogPane().getStylesheets().add("file:src/main/resources/com/finalproject/css/application.css");
 
         dialog.setTitle("Edit Teacher Data");
         ButtonType editModalButton = new ButtonType("Edit", ButtonData.OK_DONE);
@@ -374,7 +374,7 @@ public class AdminTeacherListController implements Initializable {
         // set the content
         GridPane gridPane = new GridPane();
         gridPane.setId("ParentGridpane");
-        gridPane.setStyle("-fx-font-family: arial");
+        gridPane.setStyle("-fx-font-family: SansSerif");
         gridPane.setHgap(10);
         gridPane.setVgap(10);
         gridPane.setPadding(new Insets(40, 50, 30, 50));
@@ -389,6 +389,7 @@ public class AdminTeacherListController implements Initializable {
         gridPane.add(editPassword, 1, 1);
 
         gridPane.add(new Label("Hire Date"), 0, 2);
+        editSubject1.setId("editHireDate");
         gridPane.add(editHireDate, 1, 2);
 
         gridPane.add(new Label("Subject1(now):"), 0, 3);
@@ -421,7 +422,7 @@ public class AdminTeacherListController implements Initializable {
 
         dialog = new Dialog<ButtonType>();
 
-        dialog.getDialogPane().getStylesheets().add("file:src/main/resources/com/finalproject/application.css");
+        dialog.getDialogPane().getStylesheets().add("file:src/main/resources/com/finalproject/css/application.css");
 
         dialog.setTitle("--- Error ---");
         ButtonType doneButton = new ButtonType("Close", ButtonData.OK_DONE);
