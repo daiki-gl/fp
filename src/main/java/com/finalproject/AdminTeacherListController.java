@@ -367,7 +367,6 @@ public class AdminTeacherListController implements Initializable {
         gridPane.add(editPassword, 1, 1);
 
         gridPane.add(new Label("Hire Date"), 0, 2);
-        editSubject1.setId("editHireDate");
         gridPane.add(editHireDate, 1, 2);
 
         gridPane.add(new Label("Subject1(now):"), 0, 3);
@@ -458,7 +457,6 @@ public class AdminTeacherListController implements Initializable {
 
             // call the modal
             createModal();
-
             // call model
             dialog.showAndWait().ifPresent(response -> {
                 if (response.getButtonData().equals(ButtonData.OK_DONE)) {

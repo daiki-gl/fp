@@ -89,25 +89,8 @@ public class TeacherListController implements Initializable {
     @FXML
     private Label loginName;
 
-    // Action Buttons(List Page)
-    // @FXML
-    // private Button addTeacherBtn;
-    // @FXML
-    // private Button clearBtn;
-    // @FXML
-    // private Button deleteTeacherBtn;
     @FXML
     private Button updateTeacherBtn;
-    // @FXML
-    // private Label errorMsg;
-
-    // To input Subject 1 to 3(List Page)
-    // @FXML
-    // private ComboBox<String> subject1Box;
-    // @FXML
-    // private ComboBox<String> subject2Box;
-    // @FXML
-    // private ComboBox<String> subject3Box;
 
     // To get each subjects tables' subject_id(List Page)
     int englishId;
@@ -434,7 +417,6 @@ public class TeacherListController implements Initializable {
                                     Integer.parseInt(loginUserId));
                         }
                     }
-
                     // Edit Teacher_tbl data
                     teacherModel.editLoginTeacher(
                             loginUserId, editName.getText(), Date.valueOf(setHireDate),
