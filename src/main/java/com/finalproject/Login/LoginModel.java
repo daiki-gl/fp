@@ -1,14 +1,10 @@
 package com.finalproject.Login;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 import com.finalproject.dbUnit.dbConnection;
 
 public class LoginModel {
-
     Connection conn = null;
 
     public LoginModel() {
@@ -34,7 +30,6 @@ public class LoginModel {
             statement.setString(2, password);
 
             resultSet = statement.executeQuery();
-
             return resultSet.next();
 
         } catch (SQLException e) {
@@ -54,7 +49,6 @@ public class LoginModel {
         String teacher_id = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
-
         String query = "SELECT teacher_id FROM teachers_tbl WHERE name = ? AND password = ?";
 
         try {

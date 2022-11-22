@@ -1,27 +1,20 @@
 package com.finalproject.TeacherList;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 import com.finalproject.dbUnit.dbConnection;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.*;
 import javafx.scene.control.DatePicker;
 
 public class TeacherModel {
-
     Connection conn = null;
     private ObservableList<TeacherData> teacherData;
 
     public TeacherModel() {
         this.conn = dbConnection.getConnection();
-
         if (this.conn == null) {
             System.exit(0);
         }
@@ -36,8 +29,6 @@ public class TeacherModel {
 
             ResultSet resultSet = conn.createStatement().executeQuery(query);
 
-            // id | createAt | name | department
-
             while (resultSet.next()) {
                 this.teacherData.add(new TeacherData(
                         resultSet.getString(1),
@@ -48,7 +39,6 @@ public class TeacherModel {
                         resultSet.getString(6),
                         resultSet.getString(7)));
             }
-
             return teacherData;
 
         } catch (SQLException e) {
@@ -123,7 +113,6 @@ public class TeacherModel {
     public ObservableList<TeacherData> searchTeachersBySubject(String table) {
         String query = "SELECT * FROM teachers_tbl INNER JOIN " + table + "_tbl ON teachers_tbl.teacher_id = " + table
                 + "_tbl.teacher_id;";
-        // OR subject3;";
 
         try {
             this.teacherData = FXCollections.observableArrayList();
@@ -152,7 +141,6 @@ public class TeacherModel {
     }
 
     // Combo box making lists
-    // public ObservableList<TeacherData> getTeacherNames() {
     ArrayList<String> names = new ArrayList<>();
 
     public ArrayList<String> getTeacherNames() {
@@ -199,7 +187,6 @@ public class TeacherModel {
         }
 
         try {
-
             statement = conn.prepareStatement(query);
             statement.setString(1, subject);
             resultSet = statement.executeQuery();
@@ -227,7 +214,6 @@ public class TeacherModel {
         int subject_id = 0;
 
         try {
-
             statement = conn.prepareStatement(query);
             resultSet = statement.executeQuery();
             if (resultSet.next()) {
@@ -327,7 +313,6 @@ public class TeacherModel {
         PreparedStatement statement = null;
 
         try {
-
             statement = conn.prepareStatement(query);
             statement.setInt(1, Integer.parseInt(id));
 
@@ -377,22 +362,6 @@ public class TeacherModel {
             String subject2, String subject3) {
         String sql = "UPDATE teachers_tbl SET name = ?, hire_date = ? , password = ?, subject1 = ?, subject2 = ?, subject3 = ? WHERE teacher_id = ?";
         PreparedStatement statement = null;
-
-        // if (subject1 == null) {
-        // subject1 = teacherData.get(Integer.parseInt(index)).getSubject1();
-        // } else if (subject1.equals("Clear")) {
-        // subject1 = "";
-        // }
-        // if (subject2 == null) {
-        // subject2 = teacherData.get(Integer.parseInt(index)).getSubject2();
-        // } else if (subject2.equals("Clear")) {
-        // subject2 = "";
-        // }
-        // if (subject3 == null) {
-        // subject3 = teacherData.get(Integer.parseInt(index)).getSubject3();
-        // } else if (subject3.equals("Clear")) {
-        // subject3 = "";
-        // }
 
         // LocalDate setHireDate = hireDate.getValue();
         try {

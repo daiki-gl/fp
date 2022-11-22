@@ -1,8 +1,6 @@
 package com.finalproject.Signup;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 import com.finalproject.dbUnit.dbConnection;
 
@@ -24,7 +22,6 @@ public class SignupModel {
 
     public void isSignup(String username, String password) {
         PreparedStatement statement = null;
-
         String query = "INSERT INTO teachers_tbl (name, password) VALUES (?,?);";
 
         try {

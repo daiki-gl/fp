@@ -7,20 +7,13 @@ import java.util.ResourceBundle;
 import com.finalproject.Login.LoginModel;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+import javafx.fxml.*;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class LoginController implements Initializable {
     LoginModel loginModel = new LoginModel();
-
     @FXML
     private TextField username;
     @FXML
@@ -37,25 +30,22 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         if (loginModel.isDatabaseConnected()) {
             // inject a text to dbStatus that db is connected
             System.out.println("Connected to Database");
         } else {
             System.out.println("Not Connected to Database");
         }
-
     }
 
     @FXML
     public void Login(ActionEvent event) {
-
         if (this.loginModel.isLogin(this.username.getText(), this.password.getText())) {
             id = loginModel.getLoginId(this.username.getText(), this.password.getText());
             Stage stage = (Stage) this.loginBtn.getScene().getWindow();
             stage.close();
-
             homePage();
+
         } else {
             this.loginStatus.setText("Wrong Credentials");
         }
@@ -66,13 +56,10 @@ public class LoginController implements Initializable {
     }
 
     // Register a new user
-
     public void homePage() {
-
         Stage homeStage = new Stage();
         try {
             Scene scene = new Scene(FXMLLoader.load(getClass().getResource("TeacherList.fxml")));
-
             homeStage.setScene(scene);
             homeStage.setTitle("Teacher List");
             homeStage.setResizable(false);
@@ -94,10 +81,10 @@ public class LoginController implements Initializable {
         Stage signUpStage = new Stage();
         try {
             Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Signup.fxml")));
-
             signUpStage.setScene(scene);
             signUpStage.setTitle("Sign Up Page");
             signUpStage.show();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -114,10 +101,10 @@ public class LoginController implements Initializable {
         Stage adminPageStage = new Stage();
         try {
             Scene scene = new Scene(FXMLLoader.load(getClass().getResource("AdminLogin.fxml")));
-
             adminPageStage.setScene(scene);
             adminPageStage.setTitle("Admin Login Page");
             adminPageStage.show();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

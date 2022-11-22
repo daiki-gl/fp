@@ -1,19 +1,16 @@
 package com.finalproject;
 
 import java.io.IOException;
-
 import com.finalproject.Login.LoginModel;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+import javafx.fxml.*;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class HomeController {
     LoginModel loginModel = new LoginModel();
-
     @FXML
     private Button teacherBtn;
     @FXML
@@ -33,10 +30,10 @@ public class HomeController {
         Stage signUpStage = new Stage();
         try {
             Scene scene = new Scene(FXMLLoader.load(getClass().getResource("SubjectList.fxml")));
-
             signUpStage.setScene(scene);
             signUpStage.setTitle("Subject List");
             signUpStage.show();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

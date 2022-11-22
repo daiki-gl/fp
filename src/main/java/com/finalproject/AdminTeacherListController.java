@@ -4,35 +4,17 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.ResourceBundle;
-import java.util.Set;
+import java.util.*;
 
 import com.finalproject.SubjectsTbl.AllSubjectsModel;
-import com.finalproject.TeacherList.TeacherData;
-import com.finalproject.TeacherList.TeacherModel;
+import com.finalproject.TeacherList.*;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.*;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+import javafx.fxml.*;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -40,8 +22,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class AdminTeacherListController implements Initializable {
-
-    // For editing modal(List Page)
+    // For editing modal
     TextField editName = new TextField();
     PasswordField editPassword = new PasswordField();
     DatePicker editHireDate = new DatePicker();
@@ -347,13 +328,11 @@ public class AdminTeacherListController implements Initializable {
                     }
                 }
                 this.clearFields(null);
-
             } else {
                 alertModal();
                 dialog.showAndWait().ifPresent(res -> {
                 });
             }
-
         } else {
             errorMsg.setText("*Input name, password and hired date");
         }
@@ -362,7 +341,6 @@ public class AdminTeacherListController implements Initializable {
     // Update with Modal(List Page)
     // create modal
     private void createModal() {
-
         dialog = new Dialog<ButtonType>();
 
         dialog.getDialogPane().getStylesheets().add("file:src/main/resources/com/finalproject/css/application.css");
@@ -419,7 +397,6 @@ public class AdminTeacherListController implements Initializable {
 
     // When Edit data and if there's an subject duplication(List Page)
     private void alertModal() {
-
         dialog = new Dialog<ButtonType>();
 
         dialog.getDialogPane().getStylesheets().add("file:src/main/resources/com/finalproject/css/application.css");
@@ -514,14 +491,12 @@ public class AdminTeacherListController implements Initializable {
                                 addEachSubjectTable(teacherModel.checkSubject(addSubject), Integer.parseInt(editId));
                             }
                         }
-
                     } else {
                         alertModal();
                         dialog.showAndWait().ifPresent(res -> {
                             this.clearFields(null);
                         });
                     }
-
                     this.loadTeacherData();
                     this.clearFields(null);
                 }
@@ -529,7 +504,6 @@ public class AdminTeacherListController implements Initializable {
         } else {
             errorMsg.setText("*Select employee data which you want to edit");
         }
-
     }
 
     // delete Teacher(List Page)

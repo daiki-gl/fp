@@ -1,14 +1,11 @@
 package com.finalproject.SubjectsTbl;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 import com.finalproject.dbUnit.dbConnection;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.*;
 
 public class AllSubjectsModel {
     Connection conn = null;
@@ -16,7 +13,6 @@ public class AllSubjectsModel {
 
     public AllSubjectsModel() {
         this.conn = dbConnection.getConnection();
-
         if (this.conn == null) {
             System.exit(0);
         }
@@ -29,7 +25,6 @@ public class AllSubjectsModel {
         this.allSubjectsDatas = FXCollections.observableArrayList();
 
         ResultSet resultSet;
-
         try {
             resultSet = conn.createStatement().executeQuery(query);
 

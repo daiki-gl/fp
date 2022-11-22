@@ -1,7 +1,6 @@
 package com.finalproject.TeacherList;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 public class TeacherData {
 
@@ -13,7 +12,6 @@ public class TeacherData {
     private StringProperty subject2;
     private StringProperty subject3;
 
-    // Add hireDate values to everything (getter, setter, constructor)
     public TeacherData(String id, String name, String hireDate, String password, String subject1, String subject2,
             String subject3) {
         this.id = new SimpleStringProperty(id);
@@ -108,5 +106,4 @@ public class TeacherData {
     public void setSubject3(StringProperty subject3) {
         this.subject3 = subject3;
     }
-
 }

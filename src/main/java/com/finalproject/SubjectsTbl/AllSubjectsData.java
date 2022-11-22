@@ -1,10 +1,8 @@
 package com.finalproject.SubjectsTbl;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 public class AllSubjectsData {
-
     private StringProperty subject_id;
     private StringProperty subject_name;
 

@@ -7,20 +7,13 @@ import java.util.ResourceBundle;
 import com.finalproject.Login.AdminLoginModel;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+import javafx.fxml.*;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class AdminLoginController implements Initializable {
     AdminLoginModel adminLoginModel = new AdminLoginModel();
-
     @FXML
     private TextField username;
     @FXML
@@ -41,12 +34,10 @@ public class AdminLoginController implements Initializable {
         } else {
             System.out.println("Not Connected to Database");
         }
-
     }
 
     @FXML
     public void Login(ActionEvent event) {
-
         if (this.adminLoginModel.isLogin(this.username.getText(), this.password.getText())) {
             Stage stage = (Stage) this.loginBtn.getScene().getWindow();
             stage.close();

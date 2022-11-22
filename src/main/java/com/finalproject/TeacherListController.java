@@ -4,35 +4,17 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.ResourceBundle;
-import java.util.Set;
+import java.util.*;
 
 import com.finalproject.SubjectsTbl.AllSubjectsModel;
-import com.finalproject.TeacherList.TeacherData;
-import com.finalproject.TeacherList.TeacherModel;
+import com.finalproject.TeacherList.*;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.*;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
+import javafx.fxml.*;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -41,21 +23,13 @@ import javafx.stage.Stage;
 
 public class TeacherListController implements Initializable {
 
-    // For editing modal(List Page)
+    // For editing modal
     TextField editName = new TextField();
     PasswordField editPassword = new PasswordField();
     DatePicker editHireDate = new DatePicker();
     ComboBox<String> editSubject1;
     ComboBox<String> editSubject2;
     ComboBox<String> editSubject3;
-
-    // To input general data(List Page)
-    @FXML
-    private TextField name;
-    @FXML
-    private DatePicker hireDate;
-    @FXML
-    private PasswordField password;
 
     // Research Tab
     @FXML
@@ -79,7 +53,7 @@ public class TeacherListController implements Initializable {
     @FXML
     private Hyperlink logout;
 
-    // Columns for list(List Page)
+    // Columns for list
     @FXML
     private TableView<TeacherData> teacherDataTableView;
     @FXML
@@ -116,24 +90,24 @@ public class TeacherListController implements Initializable {
     private Label loginName;
 
     // Action Buttons(List Page)
-    @FXML
-    private Button addTeacherBtn;
-    @FXML
-    private Button clearBtn;
-    @FXML
-    private Button deleteTeacherBtn;
+    // @FXML
+    // private Button addTeacherBtn;
+    // @FXML
+    // private Button clearBtn;
+    // @FXML
+    // private Button deleteTeacherBtn;
     @FXML
     private Button updateTeacherBtn;
-    @FXML
-    private Label errorMsg;
+    // @FXML
+    // private Label errorMsg;
 
     // To input Subject 1 to 3(List Page)
-    @FXML
-    private ComboBox<String> subject1Box;
-    @FXML
-    private ComboBox<String> subject2Box;
-    @FXML
-    private ComboBox<String> subject3Box;
+    // @FXML
+    // private ComboBox<String> subject1Box;
+    // @FXML
+    // private ComboBox<String> subject2Box;
+    // @FXML
+    // private ComboBox<String> subject3Box;
 
     // To get each subjects tables' subject_id(List Page)
     int englishId;
@@ -153,14 +127,14 @@ public class TeacherListController implements Initializable {
 
     ObservableList<TeacherData> tmpSearchData;
 
-    // To open modal(List Page)
+    // To open modal
     Dialog<ButtonType> dialog = null;
     Alert alert = new Alert(AlertType.NONE);
 
-    // instantiate a model(List Page)
+    // instantiate a model
     TeacherModel teacherModel = null;
     AllSubjectsModel allSubjectsModel = null;
-    private String editIdString;
+    // private String editIdString;
     private String editNameString;
     private String editPasswordString;
     private String editSubject1String;
@@ -171,7 +145,6 @@ public class TeacherListController implements Initializable {
     LoginController lController = new LoginController();
     String loginUserId;
     ObservableList<TeacherData> loginUserData;
-    // String[] loginData;
     ArrayList<String> loginData = new ArrayList<>();
 
     @Override
@@ -182,15 +155,12 @@ public class TeacherListController implements Initializable {
         this.loadTeacherDataSearch(teacherModel.getTeachers());
 
         loginUserId = lController.getLoinUserId();
-
         loadLoginUserData();
         loginName.setText("User Name: " + editNameString);
 
-        // Initialize Combo box data(List Page)
+        // Initialize Combo box data
         setSubjectList = FXCollections.observableArrayList(allSubjectsModel.getSubjectsName());
-
         getEachSubjectTablesId();
-
     }
 
     // load data and show everything(Both Page)
@@ -203,12 +173,10 @@ public class TeacherListController implements Initializable {
         this.subject2Column.setCellValueFactory(new PropertyValueFactory<TeacherData, String>("subject2"));
         this.subject3Column.setCellValueFactory(new PropertyValueFactory<TeacherData, String>("subject3"));
         this.teacherDataTableView.setItems(teacherModel.getTeachers());
-        errorMsg.setText(null);
 
     }
 
-    // **************************************
-    // load data and show everything
+    // load data and show everything(Research)
     @FXML
     public void loadTeacherDataSearch(ObservableList<TeacherData> data) {
         this.idColumnSearch.setCellValueFactory(new PropertyValueFactory<TeacherData, String>("id"));
@@ -218,7 +186,6 @@ public class TeacherListController implements Initializable {
         this.subject2ColumnSearch.setCellValueFactory(new PropertyValueFactory<TeacherData, String>("subject2"));
         this.subject3ColumnSearch.setCellValueFactory(new PropertyValueFactory<TeacherData, String>("subject3"));
         this.teacherDataTableSearch.setItems(data);
-        errorMsg.setText(null);
     }
 
     @FXML
@@ -271,7 +238,6 @@ public class TeacherListController implements Initializable {
         this.loadTeacherDataSearch(tmpSearchData);
         this.searchMsg.setText("Search By Mathematics");
     }
-    // ***************************************
 
     // Get each table's subject_id(List Page)
     // e.g english_tbl: subject_id = 2
@@ -307,7 +273,7 @@ public class TeacherListController implements Initializable {
         teacherModel.executeEachTable(teacher_id, query);
     }
 
-    // Update with Modal(List Page)
+    // Update with Modal
     // create modal
     private void createModal() {
 
@@ -368,7 +334,6 @@ public class TeacherListController implements Initializable {
     private void alertModal() {
 
         dialog = new Dialog<ButtonType>();
-
         dialog.getDialogPane().getStylesheets().add("file:src/main/resources/com/finalproject/css/application.css");
 
         dialog.setTitle("--- Error ---");
@@ -387,7 +352,6 @@ public class TeacherListController implements Initializable {
         gridPane.add(waringMsg, 0, 1);
 
         dialog.getDialogPane().setContent(gridPane);
-
         dialog.getDialogPane().getButtonTypes().add(doneButton);
     }
 
@@ -418,7 +382,6 @@ public class TeacherListController implements Initializable {
     // Edit teacher data(List Page)
     @FXML
     private void editTeacher(ActionEvent event) {
-
         this.loadLoginUserData();
         // call the modal
         this.createModal();
@@ -525,7 +488,6 @@ public class TeacherListController implements Initializable {
     private void clearFields(ActionEvent event) {
         this.searchName.setText("");
         this.searchHireDate.setValue(null);
-        errorMsg.setText(null);
     }
 
     @FXML
