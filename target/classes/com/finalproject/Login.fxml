@@ -10,9 +10,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="688.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.finalproject.LoginController">
    <children>
-      <Label layoutX="295.0" layoutY="65.0" text="LOGIN" textFill="#4d7eb9">
+      <Label layoutX="293.0" layoutY="50.0" text="LOGIN" textFill="#4d7eb9">
          <font>
-            <Font name="SansSerif Regular" size="32.0" />
+            <Font name="SansSerif Bold" size="32.0" />
          </font>
       </Label>
       <TextField fx:id="username" layoutX="154.0" layoutY="120.0" prefHeight="52.0" prefWidth="380.0" promptText="User ID" style="-fx-background-color: #EAEAEA; -fx-border-radius: 10px;">
@@ -25,12 +25,12 @@
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </PasswordField>
-      <Button fx:id="loginBtn" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="10.0" layoutX="154.0" layoutY="270.0" mnemonicParsing="false" onAction="#Login" prefHeight="52.0" prefWidth="380.0" style="-fx-background-color: #4D7EB9; -fx-border-radius: 10px;" styleClass="loginBtn" stylesheets="@css/login.css" text="Log in" textFill="WHITE">
+      <Button fx:id="loginBtn" alignment="CENTER" contentDisplay="BOTTOM" graphicTextGap="10.0" layoutX="154.0" layoutY="260.0" mnemonicParsing="false" onAction="#Login" prefHeight="52.0" prefWidth="380.0" style="-fx-background-color: #4D7EB9; -fx-border-radius: 10px;" styleClass="loginBtn" stylesheets="@css/login.css" text="Log in" textFill="WHITE">
          <font>
             <Font name="SansSerif Regular" size="32.0" />
          </font>
       </Button>
-      <Hyperlink fx:id="signup" layoutX="508.0" layoutY="20.0" onAction="#Signup" text="Sign up" textFill="#585858">
+      <Hyperlink fx:id="signup" layoutX="520.0" layoutY="20.0" onAction="#Signup" text="Sign up" textFill="#585858">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
@@ -40,7 +40,7 @@
             <Font name="SansSerif Regular" size="14.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="admin" layoutX="596.0" layoutY="20.0" onAction="#Admin" text="Admin" textFill="#585858">
+      <Hyperlink fx:id="admin" layoutX="600.0" layoutY="20.0" onAction="#Admin" text="Admin" textFill="#585858">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
