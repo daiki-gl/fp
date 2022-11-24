@@ -39,7 +39,7 @@
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </Hyperlink>
-      <Label fx:id="loginStatus" layoutX="161.0" layoutY="252.0" textFill="#ff3636">
+      <Label fx:id="loginStatus" layoutX="418.0" layoutY="325.0" textFill="#ff3636">
          <font>
             <Font name="SansSerif Regular" size="14.0" />
          </font>

@@ -30,9 +30,9 @@
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </PasswordField>
-      <Label fx:id="signupStatus" layoutX="380.0" layoutY="63.0" textFill="#ff4e4e">
+      <Label fx:id="signupStatus" layoutX="326.0" layoutY="363.0" textFill="#ff3636">
          <font>
-            <Font name="Chalkduster" size="13.0" />
+            <Font name="SansSerif Regular" size="14.0" />
          </font>
       </Label>
       <Button fx:id="signupBtn" layoutX="154.0" layoutY="295.0" mnemonicParsing="false" onAction="#signup" prefHeight="52.0" prefWidth="380.0" style="-fx-background-color: #4D7EB9; -fx-border-radius: 10px;" styleClass="loginBtn" stylesheets="@css/login.css" text="Sign up" textFill="WHITE">
