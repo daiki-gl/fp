@@ -39,20 +39,20 @@
                         </HBox>
                         <VBox prefHeight="778.0" prefWidth="358.0" style="-fx-background-color: #4D7EB9;">
                            <children>
-                              <Label alignment="TOP_CENTER" prefHeight="27.0" prefWidth="338.0" text="D&amp;H School Management System 　" textFill="WHITE">
+                              <Label alignment="CENTER" prefHeight="27.0" prefWidth="338.0" text="School Management System                         " textFill="WHITE">
                                  <font>
                                     <Font name="SansSerif Regular" size="16.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets top="20.0" />
+                                    <Insets bottom="5.0" left="14.0" top="20.0" />
                                  </VBox.margin>
                               </Label>
                               <Label alignment="TOP_CENTER" prefHeight="27.0" prefWidth="338.0" text="ABC SCHOOL" textFill="WHITE">
                                  <font>
-                                    <Font name="SansSerif Regular" size="32.0" />
+                                    <Font name="SansSerif Bold" size="32.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="5.0" top="30.0" />
+                                    <Insets bottom="5.0" />
                                  </VBox.margin>
                               </Label>
                               <Label fx:id="loginName" text="User Name:" textFill="WHITE">
@@ -60,7 +60,7 @@
                                     <Font name="SansSerif Regular" size="16.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="10.0" left="27.0" top="20.0" />
+                                    <Insets left="27.0" top="20.0" />
                                  </VBox.margin>
                               </Label>
                               <Label fx:id="errorMsg" textFill="#cd2c2c">
@@ -68,7 +68,7 @@
                                     <Font name="Arial" size="14.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="updateTeacherBtn" mnemonicParsing="false" onAction="#editTeacher" prefHeight="63.0" prefWidth="300.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px;" text="Edit Own Data" textFill="#4d7eb9">
+                              <Button fx:id="updateTeacherBtn" mnemonicParsing="false" onAction="#editTeacher" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px;" text="Edit Own Data" textFill="#4d7eb9">
                                  <font>
                                     <Font name="Arial" size="18.0" />
                                  </font>
@@ -76,12 +76,12 @@
                                     <Insets bottom="10.0" left="27.0" right="27.0" />
                                  </VBox.margin>
                               </Button>
-                              <Hyperlink fx:id="logout" alignment="CENTER" contentDisplay="CENTER" onAction="#Logout" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #ffffff; border-r: 10px;" styleClass="logoutWhite" stylesheets="@css/login.css" text="Log out" textFill="#4d7eb9">
+                              <Hyperlink fx:id="logout" alignment="CENTER" contentDisplay="CENTER" onAction="#Logout" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #ffffff; border-r: 10px;" styleClass="logoutWhite" stylesheets="@css/login.css" text="Log out" textFill="#4d7eb9">
                                  <font>
                                     <Font name="SansSerif Regular" size="20.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets left="27.0" right="27.0" top="425.0" />
+                                    <Insets left="27.0" right="27.0" top="480.0" />
                                  </VBox.margin>
                               </Hyperlink>
                            </children>
@@ -113,21 +113,18 @@
                         </HBox>
                         <VBox prefHeight="773.0" prefWidth="355.0" style="-fx-background-color: #4D7EB9;">
                            <children>
-                              <Label alignment="TOP_CENTER" prefHeight="27.0" prefWidth="338.0" text="D&amp;H School Management System 　" textFill="WHITE">
+                              <Label alignment="CENTER" prefHeight="27.0" prefWidth="338.0" text="School Management System                         " textFill="WHITE">
                                  <font>
                                     <Font name="SansSerif Regular" size="16.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets top="20.0" />
+                                    <Insets bottom="5.0" left="16.0" top="20.0" />
                                  </VBox.margin>
                               </Label>
                               <Label alignment="TOP_CENTER" prefHeight="27.0" prefWidth="338.0" text="ABC SCHOOL" textFill="WHITE">
                                  <font>
-                                    <Font name="SansSerif Regular" size="32.0" />
+                                    <Font name="SansSerif Bold" size="32.0" />
                                  </font>
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" top="30.0" />
-                                 </VBox.margin>
                               </Label>
                               <TextField fx:id="searchName" prefHeight="40.0" prefWidth="300.0" promptText="Teacher Name" style="-fx-background-color: #EAEAEA;">
                                  <font>
@@ -137,7 +134,7 @@
                                     <Insets bottom="8.0" left="27.0" right="27.0" top="20.0" />
                                  </VBox.margin>
                               </TextField>
-                              <Button fx:id="serachByNameBtn" mnemonicParsing="false" onAction="#searchByName" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px;" text="Search by Name" textFill="#4d7eb9">
+                              <Button fx:id="serachByNameBtn" mnemonicParsing="false" onAction="#searchByName" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px;" text="Search by Name" textFill="#4d7eb9">
                                  <font>
                                     <Font name="SansSerif Regular" size="18.0" />
                                  </font>
@@ -152,10 +149,10 @@
                               </Label>
                               <DatePicker fx:id="searchHireDate" prefHeight="40.0" prefWidth="300.0" promptText="Hired Date" style="-fx-background-color: #EAEAEA;">
                                  <VBox.margin>
-                                    <Insets bottom="10.0" left="27.0" right="27.0" top="10.0" />
+                                    <Insets bottom="10.0" left="27.0" right="27.0" top="20.0" />
                                  </VBox.margin>
                               </DatePicker>
-                              <Button fx:id="serachByDateBtn" mnemonicParsing="false" onAction="#searchByDate" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px;" text="Search by Date" textFill="#4d7eb9">
+                              <Button fx:id="serachByDateBtn" mnemonicParsing="false" onAction="#searchByDate" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px;" text="Search by Date" textFill="#4d7eb9">
                                  <font>
                                     <Font name="SansSerif Regular" size="18.0" />
                                  </font>
@@ -168,7 +165,7 @@
                                     <Font name="SansSerif Regular" size="18.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="10.0" left="27.0" right="27.0" top="15.0" />
+                                    <Insets bottom="10.0" left="27.0" right="27.0" top="20.0" />
                                  </VBox.margin>
                               </Button>
                               <Button fx:id="serachByMathBtn" mnemonicParsing="false" onAction="#searchByMath" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px;" text="Search by Mathematics" textFill="#4d7eb9">
@@ -203,12 +200,12 @@
                                     <Font name="SansSerif Regular" size="14.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="showEveryTeacherBtn" mnemonicParsing="false" onAction="#showEveryData" prefHeight="60.0" prefWidth="300.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px;" text="Show All Teacher" textFill="#4d7eb9">
+                              <Button fx:id="showEveryTeacherBtn" mnemonicParsing="false" onAction="#showEveryData" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px;" text="Show All Teacher" textFill="#4d7eb9">
                                  <font>
                                     <Font name="SansSerif Regular" size="18.0" />
                                  </font>
                                  <VBox.margin>
-                                    <Insets bottom="10.0" left="27.0" right="27.0" top="80.0" />
+                                    <Insets bottom="10.0" left="27.0" right="27.0" top="20.0" />
                                  </VBox.margin>
                               </Button>
                            </children>

@@ -12,7 +12,7 @@
    <children>
       <Label layoutX="278.0" layoutY="40.0" text="SIGN UP" textFill="#4d7eb9">
          <font>
-            <Font name="SansSerif Regular" size="32.0" />
+            <Font name="SansSerif Bold" size="32.0" />
          </font>
       </Label>
       <TextField fx:id="username" layoutX="154.0" layoutY="90.0" prefHeight="52.0" prefWidth="380.0" promptText="User ID" style="-fx-background-color: #EAEAEA; -fx-border-radius: 10px;">
@@ -40,7 +40,7 @@
             <Font name="SansSerif Regular" size="32.0" />
          </font>
       </Button>
-      <Hyperlink fx:id="login" layoutX="608.0" layoutY="20.0" onAction="#BackToLogin" text="Log in" textFill="#585858">
+      <Hyperlink fx:id="login" layoutX="600.0" layoutY="20.0" onAction="#BackToLogin" text="Login" textFill="#585858">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>

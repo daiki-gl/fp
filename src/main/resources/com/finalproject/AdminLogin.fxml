@@ -11,9 +11,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="688.0" style="-fx-background-color: #4D7EB9;" stylesheets="@login.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.finalproject.AdminLoginController">
    <children>
-      <Label layoutX="250.0" layoutY="65.0" text="ADMIN LOGIN" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="236.0" layoutY="50.0" text="ADMIN LOGIN" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font name="SansSerif Regular" size="32.0" />
+            <Font name="SansSerif Bold" size="32.0" />
          </font>
       </Label>
       <TextField fx:id="username" layoutX="154.0" layoutY="120.0" prefHeight="52.0" prefWidth="380.0" promptText="User ID" style="-fx-background-color: #ffffff; -fx-border-radius: 10px;">
@@ -21,12 +21,12 @@
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="password" layoutX="154.0" layoutY="190.0" prefHeight="52.0" prefWidth="380.0" promptText="Password" style="-fx-background-color: #ffffff; -fx-border-radius: 10px;">
+      <PasswordField fx:id="password" layoutX="154.0" layoutY="189.0" prefHeight="52.0" prefWidth="380.0" promptText="Password" style="-fx-background-color: #ffffff; -fx-border-radius: 10px;">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
       </PasswordField>
-      <Button fx:id="loginBtn" alignment="CENTER" contentDisplay="TOP" graphicTextGap="10.0" layoutX="154.0" layoutY="270.0" mnemonicParsing="false" onAction="#Login" prefHeight="52.0" prefWidth="380.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px;" styleClass="loginBtn" stylesheets="@css/login.css" text="Admin Login" textFill="#4d7eb9">
+      <Button fx:id="loginBtn" alignment="CENTER" contentDisplay="TOP" graphicTextGap="10.0" layoutX="154.0" layoutY="260.0" mnemonicParsing="false" onAction="#Login" prefHeight="52.0" prefWidth="380.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px;" styleClass="loginBtn" stylesheets="@css/login.css" text="Admin Login" textFill="#3873b5">
          <font>
             <Font name="SansSerif Regular" size="32.0" />
          </font>
@@ -34,7 +34,7 @@
             <Glow />
          </effect>
       </Button>
-      <Hyperlink fx:id="login" layoutX="602.0" layoutY="20.0" onAction="#BackToLogin" text="Teacher" textFill="#585858">
+      <Hyperlink fx:id="login" layoutX="602.0" layoutY="20.0" onAction="#BackToLogin" text="Teacher" textFill="WHITE">
          <font>
             <Font name="SansSerif Regular" size="16.0" />
          </font>
