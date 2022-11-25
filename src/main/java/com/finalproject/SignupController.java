@@ -66,7 +66,7 @@ public class SignupController implements Initializable {
             Scene scene = new Scene(FXMLLoader.load(getClass().getResource("Login.fxml")));
 
             signUpStage.setScene(scene);
-            signUpStage.setTitle("Sign Up Page");
+            signUpStage.setTitle("Log in Page");
             signUpStage.show();
         } catch (IOException e) {
             e.printStackTrace();

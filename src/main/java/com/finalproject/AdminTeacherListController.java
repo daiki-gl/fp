@@ -500,7 +500,7 @@ public class AdminTeacherListController implements Initializable {
                 }
             });
         } else {
-            errorMsg.setText("*Select employee data which you want to edit");
+            errorMsg.setText("*Select employee data");
         }
     }
 
@@ -522,7 +522,7 @@ public class AdminTeacherListController implements Initializable {
             this.loadTeacherData();
             this.clearFields(null);
         } else {
-            errorMsg.setText("*Select employee data which you want to delete");
+            errorMsg.setText("*Select employee data");
         }
     }
 
